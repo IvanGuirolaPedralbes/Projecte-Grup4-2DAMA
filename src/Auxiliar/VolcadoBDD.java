@@ -1,5 +1,9 @@
 package Auxiliar;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 
@@ -9,16 +13,39 @@ public class VolcadoBDD {
 		// Creado por Iván Guirola
 		ProjectDatabaseConnection conn = new ProjectDatabaseConnection();
 		
-		Connection reg = conn.getConnection();
+		Connection conexion = conn.getConnection();
+		BufferedReader inputFichero;
+		String linea;
+		PreparedStatement PS = null;
+		int i = 1;
 		
-		System.out.println(generarPreguntaMatematica());
-		System.out.println(generarPreguntaMatematica());
-		System.out.println(generarPreguntaMatematica());
-		System.out.println(generarPreguntaMatematica());
-		System.out.println(generarPreguntaMatematica());
-		System.out.println(generarPreguntaMatematica());
-		
-		
+			//se busca una pregunta aleatoria que exista
+			
+			try {
+				inputFichero = new BufferedReader(new FileReader("diccionari.txt"));
+				while((linea=inputFichero.readLine())!=null) {
+					String id = "Diccionario_"+i;
+					PS = conexion.prepareStatement("INSERT INTO PREGUNTAS VALUES (?)");
+					PS.setString(1, id);
+					PS.executeUpdate();
+					
+					PS = conexion.prepareStatement("INSERT INTO DICCIONARIO VALUES (?,?)");
+					PS.setString(1, id);
+					PS.setString(2, linea);
+					PS.executeUpdate();
+					i = (i+1);
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+				
+	           
+				
+				
+				
+	      
 		
 	}
 
