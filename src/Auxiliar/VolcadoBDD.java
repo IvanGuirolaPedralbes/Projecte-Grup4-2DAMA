@@ -16,12 +16,9 @@ public class VolcadoBDD {
 		//se conecta a la abse de datos
 		ProjectDatabaseConnection conn = new ProjectDatabaseConnection();
 		Connection conexion = conn.getConnection();
-		
 		IntroducirPreguntasDiccionario(conexion);
 		IntroducirPreguntasIngles(conexion);
 		IntroducirPreguntasMates(conexion);
-      
-		
 	}
 	
 	//genera una pregunta matematica siguiendo los parametros que pone en el ejercicio
