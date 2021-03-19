@@ -8,7 +8,7 @@ public class Inicio {
 		// TODO Auto-generated method stub
 		SwingUtilities.invokeLater(new Runnable() {
 	         public void run() {
-	            new Slider().Inicializar();
+	            new StartSlide();
 	         }
 	      });
 
