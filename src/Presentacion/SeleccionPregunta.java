@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class PreguntaIngles extends JFrame {
+public class SeleccionPregunta extends JFrame {
 
 	private JPanel contentPane;
 
@@ -18,7 +18,7 @@ public class PreguntaIngles extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PreguntaIngles frame = new PreguntaIngles();
+					SeleccionPregunta frame = new SeleccionPregunta();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class PreguntaIngles extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PreguntaIngles() {
+	public SeleccionPregunta() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
