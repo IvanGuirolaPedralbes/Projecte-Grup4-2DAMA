@@ -34,6 +34,16 @@ public class MenuPrincipal extends JPanel {
 		add(btnInforme);
 		
 		JButton btnOpciones = new JButton("OPCIONES");
+		btnOpciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//prueba
+				
+				
+				
+				ventanaInicio.dispose();
+				
+			}
+		});
 		btnOpciones.setBounds(400, 366, 191, 41);
 		btnOpciones.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnOpciones.setUI(new StyledButtonUI());

@@ -7,6 +7,7 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
 import Logica.StyledButtonUI;
@@ -29,7 +30,7 @@ public class DuracionPartida extends JFrame {
 	 * Create the frame.
 	 */
 	public DuracionPartida() {
-		setLocationRelativeTo(null);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1000, 600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -37,6 +38,7 @@ public class DuracionPartida extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setLocationRelativeTo(null);
 		contentPane.setLayout(null);
 		setResizable(false);
 		
@@ -46,6 +48,14 @@ public class DuracionPartida extends JFrame {
 		btnCorta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//llamada a partida asignando corta
+				
+			            try {
+			            	testwheel ruleta = new testwheel();
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+			            DuracionPartida.this.dispose();
 			}
 		});
 		btnCorta.setBounds(71, 141, 222, 71);
