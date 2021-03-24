@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Color;
 
 public class PreguntaIngles extends JFrame {
 
@@ -18,7 +20,18 @@ public class PreguntaIngles extends JFrame {
 
 	/**
 	 * Launch the application.
-	 */
+	 */public static void main(String[] args) {
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						PreguntaIngles frame = new PreguntaIngles();
+						frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+		}
 
 	/**
 	 * Create the frame.
@@ -34,54 +47,73 @@ public class PreguntaIngles extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel jlabelPregunta = new JLabel("Pregunta  ir a buscar a base datos");
-		jlabelPregunta.setBounds(66, 23, 282, 14);
+		jlabelPregunta.setBounds(93, 23, 649, 38);
 		contentPane.add(jlabelPregunta);
 		
-		JLabel lblopcionB = new JLabel("B-");
-		lblopcionB.setHorizontalAlignment(SwingConstants.CENTER);
-		lblopcionB.setBounds(66, 96, 31, 27);
-		contentPane.add(lblopcionB);
-		
-		JLabel lblopcionA = new JLabel("A-");
-		lblopcionA.setHorizontalAlignment(SwingConstants.CENTER);
-		lblopcionA.setBounds(66, 61, 31, 27);
-		contentPane.add(lblopcionA);
-		
-		JLabel lblopcionC = new JLabel("C-");
-		lblopcionC.setHorizontalAlignment(SwingConstants.CENTER);
-		lblopcionC.setBounds(66, 135, 31, 27);
-		contentPane.add(lblopcionC);
-		
-		JLabel lblopcionD = new JLabel("D-");
-		lblopcionD.setHorizontalAlignment(SwingConstants.CENTER);
-		lblopcionD.setBounds(66, 173, 31, 27);
-		contentPane.add(lblopcionD);
-		
 		JLabel lblRespuestaA = new JLabel("opcionRespuestaA");
-		lblRespuestaA.setBounds(156, 61, 193, 25);
+		lblRespuestaA.setOpaque(true);
+		lblRespuestaA.setBackground(Color.WHITE);
+		lblRespuestaA.setBounds(303, 97, 338, 25);
 		contentPane.add(lblRespuestaA);
 		
 		JLabel lblRespuestaB = new JLabel("opcionRespuestaB");
-		lblRespuestaB.setBounds(155, 102, 193, 25);
+		lblRespuestaB.setBackground(Color.WHITE);
+		lblRespuestaB.setOpaque(true);
+		lblRespuestaB.setBounds(303, 151, 329, 25);
 		contentPane.add(lblRespuestaB);
 		
 		JLabel lblRespuestaC = new JLabel("opcionRespuestaC");
-		lblRespuestaC.setBounds(156, 136, 193, 25);
+		lblRespuestaC.setBackground(Color.WHITE);
+		lblRespuestaC.setOpaque(true);
+		lblRespuestaC.setBounds(303, 209, 338, 25);
 		contentPane.add(lblRespuestaC);
 		
 		JLabel lblRespuestaD = new JLabel("opcionRespuestaD");
-		lblRespuestaD.setBounds(155, 174, 193, 25);
+		lblRespuestaD.setBackground(Color.WHITE);
+		lblRespuestaD.setOpaque(true);
+		lblRespuestaD.setBounds(303, 268, 338, 25);
 		contentPane.add(lblRespuestaD);
 		
 		JButton btnCHECK = new JButton("CHECK");
-		btnCHECK.setBounds(85, 227, 89, 23);
+		btnCHECK.setForeground(Color.BLACK);
+		btnCHECK.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnCHECK.setBackground(Color.YELLOW);
+		btnCHECK.setBounds(248, 369, 99, 38);
 		contentPane.add(btnCHECK);
 		
 		JButton btnNEXT = new JButton("NEXT");
-		btnNEXT.setBounds(206, 227, 89, 23);
+		btnNEXT.setForeground(Color.WHITE);
+		btnNEXT.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnNEXT.setBackground(Color.BLUE);
+		btnNEXT.setBounds(433, 369, 99, 38);
 		contentPane.add(btnNEXT);
-		
-		JLabel background;
+       // ImageIcon img = new ImageIcon("resources/fondoDuracionPartida3.jpg");
+        
+        JButton btnA = new JButton("A");
+        btnA.setBackground(Color.LIGHT_GRAY);
+        btnA.setFont(new Font("Tahoma", Font.BOLD, 18));
+        btnA.setBounds(133, 90, 52, 38);
+        contentPane.add(btnA);
+        
+        JButton btnB = new JButton("B");
+        btnB.setBackground(Color.LIGHT_GRAY);
+        btnB.setFont(new Font("Tahoma", Font.BOLD, 18));
+        btnB.setBounds(133, 141, 52, 38);
+        contentPane.add(btnB);
+        
+        JButton btnC = new JButton("C");
+        btnC.setBackground(Color.LIGHT_GRAY);
+        btnC.setFont(new Font("Tahoma", Font.BOLD, 18));
+        btnC.setBounds(133, 199, 52, 38);
+        contentPane.add(btnC);
+        
+        JButton btnD = new JButton("D");
+        btnD.setBackground(Color.LIGHT_GRAY);
+        btnD.setFont(new Font("Tahoma", Font.BOLD, 18));
+        btnD.setBounds(133, 258, 52, 38);
+        contentPane.add(btnD);
+        
+        JLabel background;
         ImageIcon img = new ImageIcon("resources/fondoDuracionPartida3.jpg");
         background = new JLabel("", img, JLabel.CENTER);
         background.setBounds(0, 0, 1000, 600);
