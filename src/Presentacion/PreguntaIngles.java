@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PreguntaIngles extends JFrame {
 
@@ -82,6 +84,13 @@ public class PreguntaIngles extends JFrame {
 		contentPane.add(btnCHECK);
 		
 		JButton btnNEXT = new JButton("NEXT");
+		btnNEXT.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PreguntaMates pM= new PreguntaMates();
+				pM.setVisible(true);
+				PreguntaIngles.this.dispose();
+			}
+		});
 		btnNEXT.setForeground(Color.WHITE);
 		btnNEXT.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNEXT.setBackground(Color.BLUE);
@@ -118,5 +127,7 @@ public class PreguntaIngles extends JFrame {
         background = new JLabel("", img, JLabel.CENTER);
         background.setBounds(0, 0, 1000, 600);
         contentPane.add(background);
+        
+        
 	}
 }
