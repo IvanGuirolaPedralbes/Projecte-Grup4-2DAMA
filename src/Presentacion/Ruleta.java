@@ -1,22 +1,24 @@
 package Presentacion;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.io.File;
 import java.util.ArrayList;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
-
 import SelectionWheel.SelectionWheel;
 
-public class testwheel {
+public class Ruleta {
 
-	public testwheel() throws Exception {
+	public Ruleta() throws Exception {
         
-        int width = 1000, height = 1000;
+        int width = 1000, height = 600;
         
 		File RuletaAgudo = new File("ruletaAgudo.wav");
 		File RuletaGrave = new File("ruletaGrave.wav");
@@ -26,21 +28,36 @@ public class testwheel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         ArrayList<String> list = new ArrayList<String>();
-        list.add("Avatar");
-        list.add("The Lord of the Rings: The Return of the King");
-        list.add("Pirates of the Caribbean: Dead Man's Chest");
+        list.add("  Matematicas");
+        list.add("Ingles");
+        list.add("Diccionario");
+        list.add("  Matematicas");
+        list.add("Ingles");
+        list.add("Diccionario");
        
+       
+        
         
         SelectionWheel wheel = new SelectionWheel(list);
         wheel.hasBorders(true);
-        wheel.setBounds(10, 10, 700, 700);
-        
        
+       
+        wheel.setBounds(250, 45, 500, 500);
+        ArrayList<Color> Colores = new ArrayList<Color>();
+        Colores.add(Color.GRAY);
+        Colores.add(Color.RED);
+        Colores.add(Color.WHITE);
+        wheel.setColorScheme(Colores);
+        
         frame.add(wheel);
         frame.setSize(width, height);
         frame.setLayout(null);
         frame.setVisible(true);
-        
+        JLabel background;
+        ImageIcon img = new ImageIcon("resources/fondoRuleta.png");
+        background = new JLabel("", img, JLabel.CENTER);
+        background.setBounds(0, 0, 1000, 600);
+        frame.add(background);
         
         final SwingWorker worker = new SwingWorker(){
         	 
