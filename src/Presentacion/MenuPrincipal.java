@@ -3,6 +3,7 @@ package Presentacion;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
@@ -78,6 +79,12 @@ public class MenuPrincipal extends JPanel {
 		btnJugar.setBounds(400, 141, 191, 41);
 		btnJugar.setUI(new StyledButtonUI());
 		add(btnJugar);
+		
+		JLabel background;
+        ImageIcon img = new ImageIcon("resources/FondoJugadoresvs.jpg");
+        background = new JLabel("", img, JLabel.CENTER);
+        background.setBounds(0, 0, 1000, 600);
+        add(background);
 
 	}
 

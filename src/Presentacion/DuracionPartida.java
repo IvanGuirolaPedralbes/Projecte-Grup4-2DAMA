@@ -50,7 +50,7 @@ public class DuracionPartida extends JFrame {
 				//llamada a partida asignando corta
 				
 			            try {
-			            	testwheel ruleta = new testwheel();
+			            	Ruleta ruleta = new Ruleta();
 						} catch (Exception e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
