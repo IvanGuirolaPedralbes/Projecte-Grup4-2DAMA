@@ -20,9 +20,9 @@ public class Ruleta {
         
         int width = 1000, height = 600;
         
-		File RuletaAgudo = new File("ruletaAgudo.wav");
-		File RuletaGrave = new File("ruletaGrave.wav");
-		File Victory = new File("victory.wav");
+		File RuletaAgudo = new File("resources"+File.separator+"ruletaAgudo.wav");
+		File RuletaGrave = new File("resources"+File.separator+"ruletaGrave.wav");
+		File Victory = new File("resources"+File.separator+"victory.wav");
 		
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

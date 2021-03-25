@@ -1,6 +1,7 @@
 package Auxiliar;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -55,7 +56,7 @@ public class VolcadoBDD {
 		PreparedStatement PS = null;
 		try {
 			int i = 1;
-			inputFichero = new BufferedReader(new FileReader("angles.txt"));
+			inputFichero = new BufferedReader(new FileReader("resources"+File.separator+"angles.txt"));
 			while((linea=inputFichero.readLine())!=null) {
 				String id = "Ingles_"+i;
 				PS = conexion.prepareStatement("INSERT INTO PREGUNTAS VALUES (?)");
@@ -90,7 +91,7 @@ public class VolcadoBDD {
 		
 		try {
 			int i = 1;
-			inputFichero = new BufferedReader(new FileReader("diccionari.txt"));
+			inputFichero = new BufferedReader(new FileReader("resources"+File.separator+"diccionari.txt"));
 			while((linea=inputFichero.readLine())!=null) {
 				String id = "Diccionario_"+i;
 				PS = conexion.prepareStatement("INSERT INTO PREGUNTAS VALUES (?)");
