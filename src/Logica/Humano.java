@@ -1,4 +1,4 @@
-package Backend;
+package Logica;
 
 import java.util.Scanner;
 

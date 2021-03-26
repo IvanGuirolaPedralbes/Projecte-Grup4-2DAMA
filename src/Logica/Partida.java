@@ -1,4 +1,4 @@
-package Backend;
+package Logica;
 
 public class Partida {
 	//Creem els atributs de la clase

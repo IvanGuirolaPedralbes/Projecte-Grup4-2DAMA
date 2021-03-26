@@ -1,4 +1,4 @@
-package Backend;
+package Logica;
 
 public abstract class Jugador{
 	//Cremos los atributos de la clase

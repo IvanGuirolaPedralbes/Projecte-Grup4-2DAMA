@@ -1,4 +1,4 @@
-package Backend;
+package Logica;
 
 public class CPU extends Jugador{
 	//Creamos el constructor de la clase
