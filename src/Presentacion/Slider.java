@@ -16,6 +16,9 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.UIManager;
+
+import Logica.StyledButtonUI;
+
 import javax.swing.SwingConstants;
 
 public class Slider {
