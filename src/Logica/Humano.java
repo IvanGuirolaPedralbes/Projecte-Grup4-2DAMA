@@ -12,11 +12,6 @@ public class Humano extends Jugador{
 //	public int respuestaMatematicas(int resultat) {
 //		return resultat;
 //	}
-	public void respuestaDiccionario() {
-		
-	}
-	public int respuestaAngles() {
-		return (int) (Math.random()*4+1);
-	}
+	
 
 }

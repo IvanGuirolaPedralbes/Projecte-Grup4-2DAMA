@@ -10,4 +10,7 @@ public class CPU extends Jugador{
 	public void respuestaMatematicas(String operacio) {
 		
 	}
+	public void respuestaIngles() {
+		
+	}
 }

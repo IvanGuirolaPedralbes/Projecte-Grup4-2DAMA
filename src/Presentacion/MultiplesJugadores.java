@@ -142,6 +142,7 @@ public class MultiplesJugadores extends JFrame {
 				ultimaposiciony+= 60;
 				BtnJugador.setBounds(62, ultimaposiciony, 128, 48);
 				contentPane.add(BtnJugador);
+				contentPane.repaint();
 			}
 		});
 		JLabel background;
