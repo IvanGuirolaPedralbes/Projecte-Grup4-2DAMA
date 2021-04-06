@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import Logica.CPU;
 import Logica.Humano;
 import Logica.Jugador;
+import Logica.Partida;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -55,7 +56,7 @@ public class MultiplesJugadores extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MultiplesJugadores() {
+	public MultiplesJugadores(Partida partida) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// setBounds(100, 100, 450, 300);
 		setLocationRelativeTo(null);
@@ -285,7 +286,7 @@ public class MultiplesJugadores extends JFrame {
 					}
 
 				}
-				else if (comboJugador3.isVisible()) {
+				if (comboJugador3.isVisible()) {
 					if (comboJugador3.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador3.getText()));
 					} else {
@@ -293,7 +294,7 @@ public class MultiplesJugadores extends JFrame {
 					}
 
 				}
-				else if (comboJugador4.isVisible()) {
+				if (comboJugador4.isVisible()) {
 					if (comboJugador4.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador4.getText()));
 					} else {
@@ -301,7 +302,7 @@ public class MultiplesJugadores extends JFrame {
 					}
 
 				}
-				else if (comboJugador5.isVisible()) {
+				if (comboJugador5.isVisible()) {
 					if (comboJugador5.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador5.getText()));
 					} else {
@@ -309,7 +310,7 @@ public class MultiplesJugadores extends JFrame {
 					}
 
 				}
-				else if (comboJugador6.isVisible()) {
+				if (comboJugador6.isVisible()) {
 					if (comboJugador6.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador6.getText()));
 					} else {
@@ -317,6 +318,10 @@ public class MultiplesJugadores extends JFrame {
 					}
 
 				}
+				partida.setCantidadJugadores(jugadores.size());
+				partida.setJugadores(jugadores);
+				
+				//preguntar quien comienza primero si empieza una cpu
 
 			}
 		});

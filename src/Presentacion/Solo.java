@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import Logica.Partida;
+
 public class Solo extends JFrame {
 
 	private JPanel contentPane;

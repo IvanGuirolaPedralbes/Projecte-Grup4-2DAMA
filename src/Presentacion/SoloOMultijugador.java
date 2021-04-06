@@ -35,7 +35,7 @@ public class SoloOMultijugador extends JFrame {
 		JButton buttonSolo = new JButton("SOLO");
 		buttonSolo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Solo solo= new Solo();
+				Solo solo= new Solo(partida);
 				solo.setVisible(true);
 				SoloOMultijugador.this.dispose();
 			}
@@ -48,7 +48,7 @@ public class SoloOMultijugador extends JFrame {
 		JButton buttonMultiplayer = new JButton("Multijugador");
 		buttonMultiplayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MultiplesJugadores multi =new MultiplesJugadores();
+				MultiplesJugadores multi =new MultiplesJugadores(partida);
 				multi.setVisible(true);
 				SoloOMultijugador.this.dispose();
 				
