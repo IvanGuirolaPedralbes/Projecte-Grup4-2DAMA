@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
+import Logica.Partida;
 import Logica.StyledButtonUI;
 
 import javax.swing.ImageIcon;
@@ -25,7 +26,7 @@ public class DuracionPartida extends JFrame {
 	 * Launch the application.
 	 */
 	
-
+	// partida 3:rapida 5:curta 10:mitjana 20:llarga
 	/**
 	 * Create the frame.
 	 */
@@ -67,6 +68,10 @@ public class DuracionPartida extends JFrame {
 		btnMedia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//llamada partida asignando media
+				Partida partida = new Partida(10);
+				SoloOMultijugador soloOMulti = new SoloOMultijugador(partida);
+				soloOMulti.setVisible(true);
+				DuracionPartida.this.dispose();
 				
 			}
 		});
@@ -79,6 +84,7 @@ public class DuracionPartida extends JFrame {
 		btnLarga.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//llamada a partida asignando larga
+				Partida partida = new Partida(20);
 			}
 		});
 		btnLarga.setBounds(71, 342, 222, 71);

@@ -12,9 +12,11 @@ public class Partida {
 	
 	public Partida(int duracionPartida) {
 		this.duracionPartida = duracionPartida;
-		jugadores = new ArrayList<Jugador>();
 	}
 
+	public void setCantidadJugadores(int Jugadores) {
+		jugadores = new ArrayList<Jugador>(Jugadores);
+	}
 	public int getRondaActual() {
 		return rondaActual;
 	}
