@@ -11,12 +11,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import javax.swing.SwingWorker;
+
+import Logica.CPU;
+import Logica.Jugador;
+import Logica.Partida;
 import SelectionWheel.SelectionWheel;
 
 public class Ruleta {
 
-	public Ruleta() throws Exception {
+	public Ruleta(Partida partida) throws Exception {
         
         int width = 1000, height = 600;
         
@@ -49,6 +54,17 @@ public class Ruleta {
         Colores.add(Color.WHITE);
         wheel.setColorScheme(Colores);
         
+        JLabel mensaje = new JLabel();
+        Jugador turnojugador = partida.turnoJugador();
+        if(turnojugador instanceof CPU) {
+        	mensaje.setText("El jugador es" + turnojugador.getUsername() + " que tire un usuario por el");
+        }
+        else mensaje.setText("Es el turno de: " + turnojugador.getUsername());
+        mensaje.setBounds(0, -5, 100, 600);
+        mensaje.setFont(new Font("Tahoma", Font.BOLD, 16));
+		mensaje.setHorizontalAlignment(SwingConstants.CENTER);
+        frame.add(mensaje);
+        
         frame.add(wheel);
         frame.setSize(width, height);
         frame.setLayout(null);
@@ -56,7 +72,7 @@ public class Ruleta {
         JLabel background;
         ImageIcon img = new ImageIcon("resources/fondoRuleta.png");
         background = new JLabel("", img, JLabel.CENTER);
-        background.setBounds(0, 0, 1000, 600);
+        background.setBounds(0, 10, 1000, 600);
         frame.add(background);
         
         final SwingWorker worker = new SwingWorker(){

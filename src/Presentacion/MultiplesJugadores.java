@@ -37,21 +37,6 @@ public class MultiplesJugadores extends JFrame {
 	private static int i = 1;
 	public ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MultiplesJugadores frame = new MultiplesJugadores();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -274,9 +259,6 @@ public class MultiplesJugadores extends JFrame {
 		contentPane.add(btnJugar);
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PreguntaIngles pregIngles = new PreguntaIngles();
-				pregIngles.setVisible(true);
-				MultiplesJugadores.this.dispose();
 				jugadores.add(new Humano(textFieldJugador1.getText()));
 				if (comboJugador2.isVisible()) {
 					if (comboJugador2.getSelectedItem().toString().equals("CPU")) {
@@ -321,8 +303,17 @@ public class MultiplesJugadores extends JFrame {
 				partida.setCantidadJugadores(jugadores.size());
 				partida.setJugadores(jugadores);
 				
-				//preguntar quien comienza primero si empieza una cpu
-
+				//preguntar quien comienza primero si empieza una cpu, como se mueve la ruleta
+				
+				try {
+	            	Ruleta ruleta = new Ruleta(partida);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+	            MultiplesJugadores.this.dispose();
+				
+				
 			}
 		});
 		btnJugar.setBounds(608, 117, 157, 68);

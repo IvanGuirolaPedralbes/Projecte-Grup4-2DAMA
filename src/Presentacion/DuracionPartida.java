@@ -48,15 +48,12 @@ public class DuracionPartida extends JFrame {
 		btnCorta.setUI(new StyledButtonUI());
 		btnCorta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Partida partida = new Partida(5);
+				SoloOMultijugador soloOMulti = new SoloOMultijugador(partida);
+				soloOMulti.setVisible(true);
+				DuracionPartida.this.dispose();
 				//llamada a partida asignando corta
-				
-			            try {
-			            	Ruleta ruleta = new Ruleta();
-						} catch (Exception e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-			            DuracionPartida.this.dispose();
+			
 			}
 		});
 		btnCorta.setBounds(71, 141, 222, 71);
