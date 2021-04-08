@@ -57,12 +57,13 @@ public class Ruleta {
         JLabel mensaje = new JLabel();
         Jugador turnojugador = partida.turnoJugador();
         if(turnojugador instanceof CPU) {
-        	mensaje.setText("El jugador es" + turnojugador.getUsername() + " que tire un usuario por el");
+        	mensaje.setText("El jugador es: " + turnojugador.getUsername() + " que tire un jugador humano por él");
         }
         else mensaje.setText("Es el turno de: " + turnojugador.getUsername());
-        mensaje.setBounds(0, -5, 100, 600);
-        mensaje.setFont(new Font("Tahoma", Font.BOLD, 16));
+        mensaje.setBounds(5, -7, 1000, 40);
+        mensaje.setFont(new Font("Tahoma", Font.BOLD, 20));
 		mensaje.setHorizontalAlignment(SwingConstants.CENTER);
+		mensaje.setVerticalAlignment(SwingConstants.CENTER);
         frame.add(mensaje);
         
         frame.add(wheel);
@@ -72,7 +73,7 @@ public class Ruleta {
         JLabel background;
         ImageIcon img = new ImageIcon("resources/fondoRuleta.png");
         background = new JLabel("", img, JLabel.CENTER);
-        background.setBounds(0, 10, 1000, 600);
+        background.setBounds(0, 10, 995, 600);
         frame.add(background);
         
         final SwingWorker worker = new SwingWorker(){

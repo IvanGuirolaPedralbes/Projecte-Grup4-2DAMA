@@ -302,7 +302,7 @@ public class MultiplesJugadores extends JFrame {
 				}
 				partida.setCantidadJugadores(jugadores.size());
 				partida.setJugadores(jugadores);
-				
+				partida.mezclarJugadores();
 				//preguntar quien comienza primero si empieza una cpu, como se mueve la ruleta
 				
 				try {
