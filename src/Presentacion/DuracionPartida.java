@@ -52,11 +52,11 @@ public class DuracionPartida extends JFrame {
 				SoloOMultijugador soloOMulti = new SoloOMultijugador(partida);
 				soloOMulti.setVisible(true);
 				DuracionPartida.this.dispose();
-				//llamada a partida asignando corta
+				//llamada a partida asignando rapida
 			
 			}
 		});
-		btnRapida.setBounds(71, 33, 275, 80);
+		btnRapida.setBounds(71, 91, 275, 70);
 		contentPane.add(btnRapida);
 		
 		JButton btnCorta = new JButton("PARTIDA CORTA");
@@ -72,7 +72,7 @@ public class DuracionPartida extends JFrame {
 			
 			}
 		});
-		btnCorta.setBounds(71, 144, 275, 70);
+		btnCorta.setBounds(71, 195, 275, 70);
 		contentPane.add(btnCorta);
 		
 		JButton btnMedia = new JButton("PARTIDA MEDIA");
@@ -88,7 +88,7 @@ public class DuracionPartida extends JFrame {
 				
 			}
 		});
-		btnMedia.setBounds(71, 243,275, 70);
+		btnMedia.setBounds(71, 300,275, 70);
 		contentPane.add(btnMedia);
 		
 		JButton btnLarga = new JButton("PARTIDA LARGA");
@@ -100,7 +100,7 @@ public class DuracionPartida extends JFrame {
 				Partida partida = new Partida(20);
 			}
 		});
-		btnLarga.setBounds(71, 342, 275, 70);
+		btnLarga.setBounds(71, 407, 275, 70);
 		contentPane.add(btnLarga);
 		
 		JLabel background;
