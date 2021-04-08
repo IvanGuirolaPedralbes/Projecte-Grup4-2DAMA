@@ -71,6 +71,7 @@ public class DuracionPartida extends JFrame {
 				//llamada a partida asignando corta
 			
 			}
+			
 		});
 		btnCorta.setBounds(71, 195, 275, 70);
 		contentPane.add(btnCorta);

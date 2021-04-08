@@ -23,7 +23,7 @@ public class Ruleta {
 
 	public Ruleta(Partida partida) throws Exception {
         
-        int width = 1000, height = 600;
+        int width = 1000, height = 620;
         
 		File RuletaAgudo = new File("resources"+File.separator+"ruletaAgudo.wav");
 		File RuletaGrave = new File("resources"+File.separator+"ruletaGrave.wav");
@@ -75,6 +75,7 @@ public class Ruleta {
         background = new JLabel("", img, JLabel.CENTER);
         background.setBounds(0, 10, 995, 600);
         frame.add(background);
+        
         
         final SwingWorker worker = new SwingWorker(){
         	 
@@ -130,7 +131,19 @@ public class Ruleta {
 		           
 		            // show selection
 		            PlaySound(Victory);
-		            JOptionPane.showMessageDialog(frame, "Selection: " + wheel.getSelectedString());
+		            JOptionPane.showMessageDialog(frame, "Te ha tocado : " + wheel.getSelectedString() +"!!");
+		            if(wheel.getSelectedString().equals("  Matematicas")) {
+		            	PreguntaMates preguntaMates = new PreguntaMates();
+		            	preguntaMates.setVisible(true);
+		            }
+		            else if(wheel.getSelectedString().equals("Ingles")) {
+		            	PreguntaIngles preguntaIngles = new PreguntaIngles();
+		            	preguntaIngles.setVisible(true);
+		            }
+		            else {
+		            	PreguntaDiccionario preguntaDiccionario = new PreguntaDiccionario();
+		            	preguntaDiccionario.setVisible(true);
+		            }
 		            frame.dispose();
 		        }
 			}	
