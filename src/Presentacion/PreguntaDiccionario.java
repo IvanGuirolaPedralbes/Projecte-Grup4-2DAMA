@@ -83,12 +83,11 @@ public class PreguntaDiccionario extends JFrame {
 		background.add(btnNEXT);
 		
 		JPanel panelLetras = new JPanel();
-		panelLetras.setOpaque(false);
+		panelLetras.setOpaque(true);
 		panelLetras.setBackground(Color.GRAY);
-		panelLetras.setSize(600,200);
+		//panelLetras.setSize(400,800);
 		
-		panelLetras.setBounds(200, 300, 300, 200);
-		
+		panelLetras.setBounds(200, 200, 600, 50);
 		background.add(panelLetras);
 		panelLetras.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 	}
