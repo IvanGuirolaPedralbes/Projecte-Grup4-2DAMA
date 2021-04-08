@@ -14,10 +14,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.FlowLayout;
+import javax.swing.JTextField;
 
 public class PreguntaDiccionario extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -49,9 +54,9 @@ public class PreguntaDiccionario extends JFrame {
 		
 		JLabel background;
         ImageIcon img = new ImageIcon("resources/fondoDuracionPartida3.jpg");
-        contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        contentPane.setLayout(null);
         background = new JLabel("", img, JLabel.CENTER);
-        background.setBounds(0, 0, 1000, 600);
+        background.setBounds(492, 10, 0, 0);
         contentPane.add(background);
         JButton btnCHECK = new JButton("CHECK");
 		btnCHECK.setForeground(Color.BLACK);
@@ -82,15 +87,27 @@ public class PreguntaDiccionario extends JFrame {
 		btnNEXT.setBounds(433, 369, 99, 38);
 		background.add(btnNEXT);
 		
-		JPanel panelLetras = new JPanel();
-		panelLetras.setOpaque(true);
-		panelLetras.setBackground(Color.GRAY);
-		//panelLetras.setSize(400,800);
+		textField = new JTextField();
+		textField.setBounds(232, 207, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
 		
-		panelLetras.setBounds(200, 200, 600, 50);
-		background.add(panelLetras);
-		panelLetras.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		textField_1 = new JTextField();
+		textField_1.setBounds(343, 207, 86, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(458, 207, 86, 20);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		textField_2.setVisible(false);
+		textField_3 = new JTextField();
+		textField_3.setBounds(564, 207, 86, 20);
+		textField_3.disable();
+		textField_3.setText("O");
+		contentPane.add(textField_3);
+		textField_3.setColumns(10);
+		textField_3.setVisible(false);
 	}
-	
-
 }
