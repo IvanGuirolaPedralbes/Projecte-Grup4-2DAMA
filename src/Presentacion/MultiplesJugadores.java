@@ -196,9 +196,9 @@ public class MultiplesJugadores extends JFrame {
 		});
 
 		JButton btnanadir = new JButton("+");
-		btnanadir.setBackground(Color.BLUE);
+		btnanadir.setBackground(Color.GREEN);
 		btnanadir.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnanadir.setBounds(608, 400, 70, 47);
+		btnanadir.setBounds(659, 223, 70, 47);
 		contentPane.add(btnanadir);
 		btnanadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -225,9 +225,9 @@ public class MultiplesJugadores extends JFrame {
 		});
 
 		JButton btnborrar = new JButton("-");
-		btnborrar.setBackground(Color.BLUE);
+		btnborrar.setBackground(Color.RED);
 		btnborrar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnborrar.setBounds(608, 450, 70, 47);
+		btnborrar.setBounds(659, 293, 70, 47);
 		contentPane.add(btnborrar);
 		btnborrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

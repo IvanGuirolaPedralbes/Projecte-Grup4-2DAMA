@@ -43,6 +43,22 @@ public class DuracionPartida extends JFrame {
 		contentPane.setLayout(null);
 		setResizable(false);
 		
+		JButton btnRapida = new JButton("PARTIDA RAPIDA");
+		btnRapida.setFont(new Font("Tahoma", Font.BOLD, 22));
+		btnRapida.setUI(new StyledButtonUI());
+		btnRapida.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Partida partida = new Partida(3);
+				SoloOMultijugador soloOMulti = new SoloOMultijugador(partida);
+				soloOMulti.setVisible(true);
+				DuracionPartida.this.dispose();
+				//llamada a partida asignando corta
+			
+			}
+		});
+		btnRapida.setBounds(71, 33, 275, 80);
+		contentPane.add(btnRapida);
+		
 		JButton btnCorta = new JButton("PARTIDA CORTA");
 		btnCorta.setFont(new Font("Tahoma", Font.BOLD, 22));
 		btnCorta.setUI(new StyledButtonUI());
@@ -56,7 +72,7 @@ public class DuracionPartida extends JFrame {
 			
 			}
 		});
-		btnCorta.setBounds(71, 141, 222, 71);
+		btnCorta.setBounds(71, 144, 275, 70);
 		contentPane.add(btnCorta);
 		
 		JButton btnMedia = new JButton("PARTIDA MEDIA");
@@ -72,7 +88,7 @@ public class DuracionPartida extends JFrame {
 				
 			}
 		});
-		btnMedia.setBounds(71, 243,222, 71);
+		btnMedia.setBounds(71, 243,275, 70);
 		contentPane.add(btnMedia);
 		
 		JButton btnLarga = new JButton("PARTIDA LARGA");
@@ -84,7 +100,7 @@ public class DuracionPartida extends JFrame {
 				Partida partida = new Partida(20);
 			}
 		});
-		btnLarga.setBounds(71, 342, 222, 71);
+		btnLarga.setBounds(71, 342, 275, 70);
 		contentPane.add(btnLarga);
 		
 		JLabel background;
