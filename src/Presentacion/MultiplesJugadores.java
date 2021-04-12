@@ -12,6 +12,7 @@ import Logica.CPU;
 import Logica.Humano;
 import Logica.Jugador;
 import Logica.Partida;
+import Logica.StyledButtonUI;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -53,21 +54,21 @@ public class MultiplesJugadores extends JFrame {
 		contentPane.setLayout(null);
 
 		JButton btnJugador1 = new JButton("Jugador");
-		btnJugador1.setBounds(62, 85, 128, 48);
+		btnJugador1.setBounds(175, 85, 128, 48);
 		contentPane.add(btnJugador1);
 
 		textFieldJugador1 = new JTextField();
-		textFieldJugador1.setBounds(263, 86, 253, 47);
+		textFieldJugador1.setBounds(367, 86, 253, 47);
 		contentPane.add(textFieldJugador1);
 		textFieldJugador1.setColumns(10);
 
 		JComboBox comboJugador2 = new JComboBox();
-		comboJugador2.setBounds(62, 155, 128, 48);
+		comboJugador2.setBounds(175, 155, 128, 48);
 		comboJugador2.addItem("Jugador");
 		comboJugador2.addItem("CPU");
 		contentPane.add(comboJugador2);
 		textFieldJugador2 = new JTextField();
-		textFieldJugador2.setBounds(263, 155, 253, 47);
+		textFieldJugador2.setBounds(367, 156, 253, 47);
 		contentPane.add(textFieldJugador2);
 		textFieldJugador2.setColumns(10);
 		textFieldJugador2.setText("Jugador 2");
@@ -88,12 +89,12 @@ public class MultiplesJugadores extends JFrame {
 		});
 
 		JComboBox comboJugador3 = new JComboBox();
-		comboJugador3.setBounds(62, 225, 128, 48);
+		comboJugador3.setBounds(175, 225, 128, 48);
 		comboJugador3.addItem("Jugador");
 		comboJugador3.addItem("CPU");
 		contentPane.add(comboJugador3);
 		textFieldJugador3 = new JTextField();
-		textFieldJugador3.setBounds(263, 225, 253, 47);
+		textFieldJugador3.setBounds(367, 226, 253, 47);
 		contentPane.add(textFieldJugador3);
 		textFieldJugador3.setColumns(10);
 		textFieldJugador3.setText("Jugador 3");
@@ -115,12 +116,12 @@ public class MultiplesJugadores extends JFrame {
 		});
 
 		JComboBox comboJugador4 = new JComboBox();
-		comboJugador4.setBounds(62, 295, 128, 48);
+		comboJugador4.setBounds(175, 295, 128, 48);
 		comboJugador4.addItem("Jugador");
 		comboJugador4.addItem("CPU");
 		contentPane.add(comboJugador4);
 		textFieldJugador4 = new JTextField();
-		textFieldJugador4.setBounds(263, 295, 253, 47);
+		textFieldJugador4.setBounds(367, 296, 253, 47);
 		contentPane.add(textFieldJugador4);
 		textFieldJugador4.setColumns(10);
 		textFieldJugador4.setText("Jugador 4");
@@ -142,12 +143,12 @@ public class MultiplesJugadores extends JFrame {
 		});
 
 		JComboBox comboJugador5 = new JComboBox();
-		comboJugador5.setBounds(62, 365, 128, 48);
+		comboJugador5.setBounds(175, 365, 128, 48);
 		comboJugador5.addItem("Jugador");
 		comboJugador5.addItem("CPU");
 		contentPane.add(comboJugador5);
 		textFieldJugador5 = new JTextField();
-		textFieldJugador5.setBounds(263, 365, 253, 47);
+		textFieldJugador5.setBounds(367, 366, 253, 47);
 		contentPane.add(textFieldJugador5);
 		textFieldJugador5.setColumns(10);
 		textFieldJugador5.setText("Jugador 5");
@@ -169,12 +170,12 @@ public class MultiplesJugadores extends JFrame {
 		});
 
 		JComboBox comboJugador6 = new JComboBox();
-		comboJugador6.setBounds(62, 435, 128, 48);
+		comboJugador6.setBounds(175, 435, 128, 48);
 		comboJugador6.addItem("Jugador");
 		comboJugador6.addItem("CPU");
 		contentPane.add(comboJugador6);
 		textFieldJugador6 = new JTextField();
-		textFieldJugador6.setBounds(263, 435, 253, 47);
+		textFieldJugador6.setBounds(367, 436, 253, 47);
 		contentPane.add(textFieldJugador6);
 		textFieldJugador6.setColumns(10);
 		textFieldJugador6.setText("Jugador 6");
@@ -196,9 +197,10 @@ public class MultiplesJugadores extends JFrame {
 		});
 
 		JButton btnanadir = new JButton("+");
-		btnanadir.setBackground(Color.GREEN);
-		btnanadir.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnanadir.setBounds(659, 223, 70, 47);
+		btnanadir.setBounds(780, 318, 85, 47);
+		btnanadir.setFont(new Font("Tahoma", Font.BOLD, 23));
+		btnanadir.setUI(new StyledButtonUI());
+		btnanadir.setBackground(Color.WHITE);
 		contentPane.add(btnanadir);
 		btnanadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -225,9 +227,10 @@ public class MultiplesJugadores extends JFrame {
 		});
 
 		JButton btnborrar = new JButton("-");
-		btnborrar.setBackground(Color.RED);
-		btnborrar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnborrar.setBounds(659, 293, 70, 47);
+		btnborrar.setBounds(885, 318, 85, 47);
+		btnborrar.setFont(new Font("Tahoma", Font.BOLD, 23));
+		btnborrar.setUI(new StyledButtonUI());
+		btnborrar.setBackground(Color.WHITE);
 		contentPane.add(btnborrar);
 		btnborrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -253,9 +256,11 @@ public class MultiplesJugadores extends JFrame {
 
 		});
 
-		JButton btnJugar = new JButton("JUGAR");
-		btnJugar.setBounds(608, 117, 157, 68);
-		btnJugar.setBackground(Color.WHITE);
+		JButton btnJugar = new JButton("Jugar");
+		btnJugar.setBounds(780, 204, 190, 85);
+		btnJugar.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnJugar.setUI(new StyledButtonUI());
+		btnJugar.setBackground(Color.RED);
 		contentPane.add(btnJugar);
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -316,15 +321,11 @@ public class MultiplesJugadores extends JFrame {
 				
 			}
 		});
-		btnJugar.setBounds(608, 117, 157, 68);
-		btnJugar.setBackground(Color.WHITE);
-		contentPane.add(btnJugar);
 
 		JLabel background;
-		ImageIcon img = new ImageIcon("resources/FondoJugadoresvs.jpg");
+		ImageIcon img = new ImageIcon("resources/fondo_Jugadores.jpg");
 		background = new JLabel("", img, JLabel.CENTER);
 		background.setBounds(0, 0, 1000, 600);
 		contentPane.add(background);
-
 	}
 }
