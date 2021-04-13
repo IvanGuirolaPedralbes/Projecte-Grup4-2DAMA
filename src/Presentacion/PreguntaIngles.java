@@ -8,10 +8,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Logica.PreguntaInglesLogica;
+import Logica.StyledButtonUI;
 
 import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -25,6 +28,10 @@ public class PreguntaIngles extends JFrame {
 	private JPanel contentPane;
 	PreguntaInglesLogica pregunta;
 	String respuesta;
+	JToggleButton btnA;
+	JToggleButton btnB;
+	JToggleButton btnC;
+	JToggleButton btnD;
 
 
 	public PreguntaIngles() {
@@ -39,6 +46,7 @@ public class PreguntaIngles extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		ButtonGroup grupo = new ButtonGroup();
 		
 		JLabel jlabelPregunta = new JLabel(pregunta.getPregunta());
 		jlabelPregunta.setHorizontalAlignment(SwingConstants.CENTER);
@@ -48,53 +56,57 @@ public class PreguntaIngles extends JFrame {
 		
 		
         
-        JButton btnA = new JButton(respuestas.get(0));
+        btnA = new JToggleButton(respuestas.get(0));
         btnA.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		respuesta = btnA.getText();
-        		btnA.setSelected(true);
+        		repintarBotones(btnA);
         	
         	}
         });
-        
+        btnA.setBackground(Color.LIGHT_GRAY);
         btnA.setFont(new Font("Tahoma", Font.BOLD, 18));
         btnA.setBounds(85, 127, 280, 47);
+        btnA.setUI(new StyledButtonUI());
         contentPane.add(btnA);
         
-        JButton btnB = new JButton(respuestas.get(1));
+        btnB = new JToggleButton(respuestas.get(1));
         btnB.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		respuesta = btnB.getText();
-        		btnB.setSelected(true);
+        		repintarBotones(btnB);
         	}
         });
         btnB.setBackground(Color.LIGHT_GRAY);
         btnB.setFont(new Font("Tahoma", Font.BOLD, 18));
         btnB.setBounds(476, 127, 280, 47);
+        btnB.setUI(new StyledButtonUI());
         contentPane.add(btnB);
         
-        JButton btnC = new JButton(respuestas.get(2));
+        btnC = new JToggleButton(respuestas.get(2));
         btnC.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		respuesta = btnC.getText();
-        		btnC.setSelected(true);
+        		repintarBotones(btnC);
         	}
         });
         btnC.setBackground(Color.LIGHT_GRAY);
         btnC.setFont(new Font("Tahoma", Font.BOLD, 18));
         btnC.setBounds(85, 230,280, 47);
+        btnC.setUI(new StyledButtonUI());
         contentPane.add(btnC);
         
-        JButton btnD = new JButton(respuestas.get(3));
+        btnD = new JToggleButton(respuestas.get(3));
         btnD.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		respuesta = btnD.getText();
-        		btnD.setSelected(true);
+        		repintarBotones(btnD);
         	}
         });
         btnD.setBackground(Color.LIGHT_GRAY);
         btnD.setFont(new Font("Tahoma", Font.BOLD, 18));
         btnD.setBounds(476, 230, 280, 47);
+        btnD.setUI(new StyledButtonUI());
         contentPane.add(btnD);
         ImageIcon img = new ImageIcon("resources/fondoDuracionPartida3.jpg");
         JButton btnCHECK = new JButton("CHECK");
@@ -108,7 +120,7 @@ public class PreguntaIngles extends JFrame {
 			}
 			btnCHECK.setText("NEXT");
 			
-			repintarBotones(btnA,btnB,btnC,btnD);
+			repintarBotonesCheck(btnA,btnB,btnC,btnD);
 			}
 			
 		});
@@ -116,14 +128,18 @@ public class PreguntaIngles extends JFrame {
 		btnCHECK.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnCHECK.setBackground(Color.YELLOW);
 		btnCHECK.setBounds(375, 381, 99, 38);
+		btnCHECK.setUI(new StyledButtonUI());
 		contentPane.add(btnCHECK);
        // ImageIcon img = new ImageIcon("resources/fondoDuracionPartida3.jpg");
-        
+        grupo.add(btnA);
+        grupo.add(btnB);
+        grupo.add(btnC);
+        grupo.add(btnD);
         
 	}
 	
-	public void repintarBotones(JButton btnA, JButton btnB, JButton btnC, JButton btnD) {
-		JButton Correcto = null;
+	public void repintarBotonesCheck(JToggleButton btnA, JToggleButton btnB, JToggleButton btnC, JToggleButton btnD) {
+		JToggleButton Correcto = null;
 		if(pregunta.comprobarRespuesta(btnA.getText())) {
 			Correcto = btnA;
 			btnA.setBackground(Color.GREEN);
@@ -152,6 +168,28 @@ public class PreguntaIngles extends JFrame {
 		}
 		if(!Correcto.equals(btnD)) {
 			btnD.setBackground(Color.RED);
+		}
+		btnA.setEnabled(false);
+		btnB.setEnabled(false);
+		btnC.setEnabled(false);
+		btnD.setEnabled(false);
+		
+		
+	}
+	public void repintarBotones(JToggleButton pressedbtn) {
+		
+		pressedbtn.setBackground(Color.YELLOW);
+		if(!pressedbtn.equals(btnA)) {
+			btnA.setBackground(Color.LIGHT_GRAY);
+		}
+		if(!pressedbtn.equals(btnB)) {
+			btnB.setBackground(Color.LIGHT_GRAY);
+		}
+		if(!pressedbtn.equals(btnC)) {
+			btnC.setBackground(Color.LIGHT_GRAY);
+		}
+		if(!pressedbtn.equals(btnD)) {
+			btnD.setBackground(Color.LIGHT_GRAY);
 		}
 		
 		
