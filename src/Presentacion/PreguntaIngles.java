@@ -27,7 +27,7 @@ public class PreguntaIngles extends JFrame {
 
 	private JPanel contentPane;
 	PreguntaInglesLogica pregunta;
-	String respuesta;
+	String respuesta = null;
 	JToggleButton btnA;
 	JToggleButton btnB;
 	JToggleButton btnC;
@@ -54,6 +54,11 @@ public class PreguntaIngles extends JFrame {
 		jlabelPregunta.setBounds(0, 24, 974, 38);
 		contentPane.add(jlabelPregunta);
 		
+		 JLabel lblAviso = new JLabel("");
+		 lblAviso.setHorizontalAlignment(SwingConstants.CENTER);
+	     lblAviso.setBounds(328, 333, 181, 37);
+	     contentPane.add(lblAviso);
+	        
 		
         
         btnA = new JToggleButton(respuestas.get(0));
@@ -112,15 +117,27 @@ public class PreguntaIngles extends JFrame {
         JButton btnCHECK = new JButton("CHECK");
 		btnCHECK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			if(pregunta.comprobarRespuesta(respuesta)) {
-				jlabelPregunta.setText("CORRECTO");
-			}
-			else {
-				jlabelPregunta.setText("ERROR");
-			}
-			btnCHECK.setText("NEXT");
+				if(respuesta == null) {
+					lblAviso.setText("Escoge una respuesta!");
+					jlabelPregunta.setFont(new Font("Bahnschrift", Font.BOLD, 17));
+					
+					lblAviso.setForeground(Color.RED);
+				}
+				else {
+				
+					if(pregunta.comprobarRespuesta(respuesta)) {
+						jlabelPregunta.setText("CORRECTO");
+						btnCHECK.setText("NEXT");
+						repintarBotonesCheck(btnA,btnB,btnC,btnD);
+					}
+					else {
+						jlabelPregunta.setText("ERROR");
+						btnCHECK.setText("NEXT");
+						repintarBotonesCheck(btnA,btnB,btnC,btnD);
+					}
 			
-			repintarBotonesCheck(btnA,btnB,btnC,btnD);
+				}
+			
 			}
 			
 		});
@@ -136,6 +153,7 @@ public class PreguntaIngles extends JFrame {
         grupo.add(btnC);
         grupo.add(btnD);
         
+       
 	}
 	
 	public void repintarBotonesCheck(JToggleButton btnA, JToggleButton btnB, JToggleButton btnC, JToggleButton btnD) {
@@ -156,6 +174,7 @@ public class PreguntaIngles extends JFrame {
 			Correcto = btnD;
 			btnD.setBackground(Color.GREEN);
 		}
+		
 		
 		if(!Correcto.equals(btnA)) {
 			btnA.setBackground(Color.RED);
@@ -194,6 +213,4 @@ public class PreguntaIngles extends JFrame {
 		
 		
 	}
-	
-	
 }
