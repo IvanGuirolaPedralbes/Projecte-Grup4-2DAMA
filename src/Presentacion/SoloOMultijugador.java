@@ -25,11 +25,13 @@ public class SoloOMultijugador extends JFrame {
 	public SoloOMultijugador(Partida partida) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//setBounds(100, 100, 1000, 600);
-		setLocationRelativeTo(null);
+	
 		setSize(1000,600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setResizable(false);
+		setLocationRelativeTo(null);
 		contentPane.setLayout(null);
 		
 		JButton buttonSolo = new JButton("SOLO");

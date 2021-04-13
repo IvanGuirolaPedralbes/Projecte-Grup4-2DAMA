@@ -94,8 +94,7 @@ public class PreguntaInglesLogica extends Pregunta{
 
 	@Override
 	public void cogerPregunta() {
-		// Creado por Iván Guirola
-		String[] preguntaIngles = new String[6];
+		
 	}
 	
 	public ArrayList<String> respuestasMezcladas() {

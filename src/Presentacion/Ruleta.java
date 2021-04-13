@@ -31,6 +31,7 @@ public class Ruleta {
 		
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       
         
         ArrayList<String> list = new ArrayList<String>();
         list.add("  Matematicas");
@@ -75,7 +76,7 @@ public class Ruleta {
         background = new JLabel("", img, JLabel.CENTER);
         background.setBounds(0, 10, 995, 600);
         frame.add(background);
-        
+       
         
         final SwingWorker worker = new SwingWorker(){
         	 
@@ -149,7 +150,8 @@ public class Ruleta {
 			}	
 		};
 		worker.execute();
-			
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);	
     }
 	
 	public static void PlaySound(File Sound) {

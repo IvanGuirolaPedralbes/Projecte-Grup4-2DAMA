@@ -41,7 +41,6 @@ public class DuracionPartida extends JFrame {
 		setContentPane(contentPane);
 		setLocationRelativeTo(null);
 		contentPane.setLayout(null);
-		setResizable(false);
 		
 		JButton btnRapida = new JButton("PARTIDA RAPIDA");
 		btnRapida.setFont(new Font("Tahoma", Font.BOLD, 22));

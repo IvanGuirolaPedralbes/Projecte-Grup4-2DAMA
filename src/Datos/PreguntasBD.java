@@ -43,4 +43,27 @@ public class PreguntasBD {
 		
 	return preguntaIngles;
 	}
+	
+	public static  String[] getPreguntaMatematicas() throws SQLException {
+		// Creado por Iván Guirola
+		String preguntaMates[] = new String[2];
+		String id_Pregunta = null;
+		String operacion = null;
+		PreparedStatement PS;
+		ResultSet RS;
+		String SQL_SELECT = "SELECT * FROM MATEMATICAS ORDER BY RAND() LIMIT 1";
+		ProjectDatabaseConnection conn = new ProjectDatabaseConnection();
+		PS = conn.getConnection().prepareStatement(SQL_SELECT);
+		RS = PS.executeQuery();
+		while (RS.next()) {
+			preguntaMates[0] = RS.getString(1);
+			preguntaMates[1] = RS.getString(2);
+			
+		}
+		
+		PS = null;
+		RS = null;
+		conn.desconectar();
+	return preguntaMates;
+	}
 }

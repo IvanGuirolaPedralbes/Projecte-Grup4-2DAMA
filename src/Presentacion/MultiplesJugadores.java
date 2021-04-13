@@ -45,12 +45,14 @@ public class MultiplesJugadores extends JFrame {
 	public MultiplesJugadores(Partida partida) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// setBounds(100, 100, 450, 300);
-		setLocationRelativeTo(null);
+		
 		setSize(1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 240, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setResizable(false);
+		setLocationRelativeTo(null);
 		contentPane.setLayout(null);
 
 		JButton btnJugador1 = new JButton("Jugador");
