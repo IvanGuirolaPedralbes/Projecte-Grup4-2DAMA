@@ -20,6 +20,7 @@ public class VolcadoBDD {
 		IntroducirPreguntasDiccionario(conexion);
 		IntroducirPreguntasIngles(conexion);
 		IntroducirPreguntasMates(conexion);
+		conn.desconectar();
 	}
 	
 	//genera una pregunta matematica siguiendo los parametros que pone en el ejercicio

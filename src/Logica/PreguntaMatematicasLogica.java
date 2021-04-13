@@ -4,7 +4,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-public class Matematicas {
+public class PreguntaMatematicasLogica extends Pregunta{
 	//Creamos els atributs de la clase
 	private String idMatematicas;
 	protected String operacio;
@@ -15,5 +15,11 @@ public class Matematicas {
 		Object result = engine.eval(operacion);
 		int valor = Integer.decode(result.toString());
 		System.out.println(valor);
+	}
+
+	@Override
+	void cogerPregunta() {
+		// Creado por Iván Guirola
+		
 	}
 }
