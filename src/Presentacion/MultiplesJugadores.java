@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -266,7 +267,6 @@ public class MultiplesJugadores extends JFrame {
 		contentPane.add(btnJugar);
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				jugadores.add(new Humano(textFieldJugador1.getText()));
 				if (comboJugador2.isVisible()) {
 					if (comboJugador2.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador2.getText()));
@@ -307,23 +307,26 @@ public class MultiplesJugadores extends JFrame {
 					}
 
 				}
-				partida.setCantidadJugadores(jugadores.size());
-				partida.setJugadores(jugadores);
-				//introduce jugadores en la base de datos si n oestan
-				partida.insertarJugadores();
-				
-				partida.mezclarJugadores();
-				//preguntar quien comienza primero si empieza una cpu, como se mueve la ruleta
-				
-				try {
-	            	Ruleta ruleta = new Ruleta(partida);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				if (textFieldJugador1.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Obligatorio añadir nombre al Jugador1", "Alerta",
+							JOptionPane.WARNING_MESSAGE);
+				} else {
+					jugadores.add(new Humano(textFieldJugador1.getText()));
+					partida.setCantidadJugadores(jugadores.size());
+					partida.setJugadores(jugadores);
+					partida.insertarJugadores();
+					partida.mezclarJugadores();
+					// preguntar quien comienza primero si empieza una cpu, como se mueve la ruleta
+
+					try {
+						Ruleta ruleta = new Ruleta(partida);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					MultiplesJugadores.this.dispose();
+
 				}
-	            MultiplesJugadores.this.dispose();
-				
-				
 			}
 		});
 

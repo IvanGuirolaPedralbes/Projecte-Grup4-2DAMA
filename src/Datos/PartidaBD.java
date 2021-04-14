@@ -28,6 +28,6 @@ public class PartidaBD {
 		
 		
 		return null;
-		*/
-	}
+	
+	}*/
 }
