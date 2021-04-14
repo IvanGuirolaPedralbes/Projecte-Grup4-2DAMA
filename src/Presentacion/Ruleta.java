@@ -134,11 +134,11 @@ public class Ruleta {
 		            PlaySound(Victory);
 		            JOptionPane.showMessageDialog(frame, "Te ha tocado : " + wheel.getSelectedString() +"!!");
 		            if(wheel.getSelectedString().equals("  Matematicas")) {
-		            	PreguntaMates preguntaMates = new PreguntaMates();
+		            	PreguntaMates preguntaMates = new PreguntaMates(partida);
 		            	preguntaMates.setVisible(true);
 		            }
 		            else if(wheel.getSelectedString().equals("Ingles")) {
-		            	PreguntaIngles preguntaIngles = new PreguntaIngles();
+		            	PreguntaIngles preguntaIngles = new PreguntaIngles(partida);
 		            	preguntaIngles.setVisible(true);
 		            }
 		            else {

@@ -1,5 +1,9 @@
 package Logica;
 
+import java.sql.SQLException;
+
+import Datos.JugadoresBD;
+
 public abstract class Jugador{
 	//Cremos los atributos de la clase
 	protected String username;
@@ -32,6 +36,17 @@ public abstract class Jugador{
 		this.puntuacion = puntuacion;
 	};
 	
+	//inserta el jugador en la base de datos si no existe
+	public void insertaJugadorSiNoExiste() {
+		try {
+			if(!JugadoresBD.comprobarJugador(username)) {
+				JugadoresBD.crearJugador(username);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 }

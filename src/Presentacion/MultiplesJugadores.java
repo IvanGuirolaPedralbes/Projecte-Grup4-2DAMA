@@ -309,6 +309,9 @@ public class MultiplesJugadores extends JFrame {
 				}
 				partida.setCantidadJugadores(jugadores.size());
 				partida.setJugadores(jugadores);
+				//introduce jugadores en la base de datos si n oestan
+				partida.insertarJugadores();
+				
 				partida.mezclarJugadores();
 				//preguntar quien comienza primero si empieza una cpu, como se mueve la ruleta
 				

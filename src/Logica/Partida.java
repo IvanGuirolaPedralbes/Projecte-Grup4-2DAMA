@@ -6,6 +6,7 @@ import java.util.Collections;
 
 public class Partida {
 	//Creem els atributs de la clase
+	private int id_Partida;
 	private int rondaActual=0;
 	private int posActual=0;
 	private int duracionPartida;
@@ -64,6 +65,12 @@ public class Partida {
 		else this.posActual++;
 		
 		return jugadorTurno;	
+	}
+	//llama a insertajugador de cada jugador
+	public void insertarJugadores() {
+		for(Jugador jugador : jugadores) {
+			jugador.insertaJugadorSiNoExiste();
+		}
 	}
 	
 	@Override

@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Logica.Partida;
 import Logica.PreguntaMatematicasLogica;
 import Logica.StyledButtonUI;
 
@@ -29,24 +30,12 @@ public class PreguntaMates extends JFrame {
 
 	/**
 	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PreguntaMates frame = new PreguntaMates();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
-	public PreguntaMates() {
+	public PreguntaMates(Partida partida) {
 		pregunta = new PreguntaMatematicasLogica();
 		//TODO FALTA CONTROLAR NUMEROS NEGATIVOS
 		System.out.println(pregunta.getOperacion());

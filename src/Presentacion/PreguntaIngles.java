@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Logica.Partida;
 import Logica.PreguntaInglesLogica;
 import Logica.StyledButtonUI;
 
@@ -32,10 +33,14 @@ public class PreguntaIngles extends JFrame {
 	JToggleButton btnB;
 	JToggleButton btnC;
 	JToggleButton btnD;
+	
 
-
-	public PreguntaIngles() {
+	public PreguntaIngles(Partida partida) {
 		pregunta = new PreguntaInglesLogica();
+		
+		
+		
+		
 		ArrayList<String> respuestas = new ArrayList<String>(4);
 		respuestas = pregunta.respuestasMezcladas();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

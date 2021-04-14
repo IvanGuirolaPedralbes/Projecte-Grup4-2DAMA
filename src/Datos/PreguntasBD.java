@@ -16,7 +16,7 @@ public class PreguntasBD {
 	public static  String[] getPreguntaIngles() throws SQLException {
 		// Creado por Iván Guirola
 		String preguntaIngles[] = new String[6];
-		String id_Pregunta = null;
+		String username = null;
 		String pregunta = null;
 		String correcta = null;
 		String alt1 = null;
