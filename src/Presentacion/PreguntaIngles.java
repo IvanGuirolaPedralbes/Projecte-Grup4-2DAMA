@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Logica.CPU;
 import Logica.Partida;
 import Logica.PreguntaInglesLogica;
 import Logica.StyledButtonUI;
@@ -22,6 +23,7 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 import java.awt.event.ActionEvent;
 
 public class PreguntaIngles extends JFrame {
@@ -180,6 +182,47 @@ public class PreguntaIngles extends JFrame {
         grupo.add(btnB);
         grupo.add(btnC);
         grupo.add(btnD);
+        
+        
+        if(partida.getJugadores().get(partida.getPosActual()) instanceof CPU) {
+        		Random numeroRandom = new Random();
+               int opt = numeroRandom.nextInt((4 - 1) + 1) + 1;
+               switch(opt) {
+	               case 1:
+	            	   repintarBotones(btnA);
+	            	   respuesta = btnA.getText();
+	            	   break;
+	               case 2:
+	            	   repintarBotones(btnB);
+	            	   respuesta = btnB.getText();
+	            	   break;
+	               case 3:
+	            	   repintarBotones(btnC);
+	            	   respuesta = btnC.getText();
+	            	   break;
+	               case 4:
+	            	   repintarBotones(btnD);
+	            	   respuesta = btnD.getText();
+	            	   break;
+               }
+
+               if(pregunta.comprobarRespuesta(respuesta)) {
+					jlabelPregunta.setText("CORRECTO");
+					btnCHECK.setText("NEXT");
+					repintarBotonesCheck(btnA,btnB,btnC,btnD);
+					partida.getJugadores().get(partida.getPosActual()).sumarPunto();
+					partida.almacenarRonda(pregunta.getId_Pregunta(), 1);
+				}
+				else {
+					jlabelPregunta.setText("ERROR");
+					btnCHECK.setText("NEXT");
+					repintarBotonesCheck(btnA,btnB,btnC,btnD);
+					partida.almacenarRonda(pregunta.getId_Pregunta(), 0);
+					
+				}
+               
+            
+        }
         
        
 	}

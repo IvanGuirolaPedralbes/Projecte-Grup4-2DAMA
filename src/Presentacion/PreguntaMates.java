@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Logica.CPU;
 import Logica.Partida;
 import Logica.PreguntaMatematicasLogica;
 import Logica.StyledButtonUI;
@@ -331,6 +332,33 @@ public class PreguntaMates extends JFrame {
 	        background2 = new JLabel("", img, JLabel.CENTER);
 	        background2.setBounds(0, 0, 1000, 600);
 	        contentPane.add(background2);
+	        
+	        
+	        if(partida.getJugadores().get(partida.getPosActual()) instanceof CPU) {
+	        	//acierta automaticamente
+				lblPregunta.setText("CORRECTO!!!");
+				lblPregunta.setForeground(Color.GREEN);
+				lblPregunta.setHorizontalAlignment(SwingConstants.CENTER);
+				partida.getJugadores().get(partida.getPosActual()).sumarPunto();
+				partida.almacenarRonda(pregunta.getId_Pregunta(), 1);
+				lblRespuestaUsuario.setText(pregunta.getOperacion() +" = " + pregunta.getRespuestaCorrecta());
+				lblRespuestaUsuario.setHorizontalAlignment(SwingConstants.CENTER);
+				btn0.setEnabled(false);
+				btn1.setEnabled(false);
+				btn2.setEnabled(false);
+				btn3.setEnabled(false);
+				btn4.setEnabled(false);
+				btn5.setEnabled(false);
+				btn6.setEnabled(false);
+				btn7.setEnabled(false);
+				btn8.setEnabled(false);
+				btn9.setEnabled(false);
+				btncheck.setEnabled(false);
+				btndelete.setEnabled(false);
+				
+				//boton next se hace visible a la derecha
+				btnNext.setVisible(true);
+	        }
       
 	}
 	
