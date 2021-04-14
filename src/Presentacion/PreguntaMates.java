@@ -292,6 +292,28 @@ public class PreguntaMates extends JFrame {
 			contentPane.add(btndelete);
 			
 			JLabel background;
+			
+			JButton btnMenos = new JButton("-");
+			btnMenos.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					convertNegative();
+				}
+			});
+			btnMenos.setFont(new Font("Tahoma", Font.PLAIN, 67));
+			btnMenos.setBounds(600, 334, 86, 88);
+			btnMenos.setUI(new StyledButtonUI());
+			contentPane.add(btnMenos);
+			
+			JButton btnMas = new JButton("+");
+			btnMas.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					convertPositive();
+				}
+			});
+			btnMas.setFont(new Font("Tahoma", Font.PLAIN, 61));
+			btnMas.setBounds(600, 427, 86, 88);
+			btnMas.setUI(new StyledButtonUI());
+			contentPane.add(btnMas);
 			background = new JLabel("");
 			background.setIcon(new ImageIcon("resources/Calculadora2.jpg"));
 			background.setBounds(300, 0, 550, 550);
@@ -316,6 +338,29 @@ public class PreguntaMates extends JFrame {
 		}
 		
 	}
+	
+	public void convertNegative() {
+		//hacer que el numero se vuelva negativo
+		int respuesta = Integer.parseInt(lblRespuestaUsuario.getText());
+		if (respuesta >=0){
+			respuesta*=-1;
+			lblRespuestaUsuario.setText(Integer.toString(respuesta));
+		}
+		
+		
+	}
+	
+	
+	public void convertPositive() {
+		int respuesta = Integer.parseInt(lblRespuestaUsuario.getText());
+		if (respuesta <0){
+			respuesta = Math.abs(respuesta);
+			lblRespuestaUsuario.setText(Integer.toString(respuesta));
+		}
+		
+		
+	}
+	
 	
 	public void deleteNumber() {
 		String respuesta = lblRespuestaUsuario.getText();
