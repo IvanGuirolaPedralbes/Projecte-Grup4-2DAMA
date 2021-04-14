@@ -93,6 +93,20 @@ public class PreguntaMates extends JFrame {
 			btnNext.setFont(new Font("Tahoma", Font.BOLD, 17));
 			btnNext.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					if(partida.isPartidaTerminada()) {
+						ventanaFin fin = new ventanaFin();
+						fin.setVisible(true);
+						PreguntaMates.this.dispose();
+					}
+					else {
+						try {
+							Ruleta ruleta = new Ruleta(partida);
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						PreguntaMates.this.dispose();
+					};
 				}
 			});
 			btnNext.setBounds(817, 275, 116, 59);
@@ -236,12 +250,15 @@ public class PreguntaMates extends JFrame {
 						lblPregunta.setText("CORRECTO!!!");
 						lblPregunta.setForeground(Color.GREEN);
 						lblPregunta.setHorizontalAlignment(SwingConstants.CENTER);
+						partida.getJugadores().get(partida.getPosActual()).sumarPunto();
+						partida.almacenarRonda(pregunta.getId_Pregunta(), 1);
 					}
 					else {
 						//si falla
 						lblPregunta.setText("ERROR!!!");
 						lblPregunta.setForeground(Color.RED);
 						lblPregunta.setHorizontalAlignment(SwingConstants.CENTER);
+						partida.almacenarRonda(pregunta.getId_Pregunta(), 0);
 					}
 					lblRespuestaUsuario.setText(pregunta.getOperacion() +" = " + pregunta.getRespuestaCorrecta());
 					lblRespuestaUsuario.setHorizontalAlignment(SwingConstants.CENTER);

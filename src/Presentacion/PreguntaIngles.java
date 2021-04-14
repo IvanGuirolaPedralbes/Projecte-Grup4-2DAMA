@@ -124,29 +124,50 @@ public class PreguntaIngles extends JFrame {
         JButton btnCHECK = new JButton("CHECK");
 		btnCHECK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(respuesta == null) {
-					lblAviso.setText("Escoge una respuesta!");
-					jlabelPregunta.setFont(new Font("Bahnschrift", Font.BOLD, 17));
-					
-					lblAviso.setForeground(Color.RED);
-				}
-				else {
-				
-					if(pregunta.comprobarRespuesta(respuesta)) {
-						jlabelPregunta.setText("CORRECTO");
-						btnCHECK.setText("NEXT");
-						repintarBotonesCheck(btnA,btnB,btnC,btnD);
+				if(btnCHECK.getText().equals("NEXT")) {
+					if(partida.isPartidaTerminada()) {
+						ventanaFin fin = new ventanaFin();
+						fin.setVisible(true);
+						PreguntaIngles.this.dispose();
 					}
 					else {
-						jlabelPregunta.setText("ERROR");
-						btnCHECK.setText("NEXT");
-						repintarBotonesCheck(btnA,btnB,btnC,btnD);
+						try {
+							Ruleta ruleta = new Ruleta(partida);
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						PreguntaIngles.this.dispose();
 					}
-			
 				}
-			
+				else {
+					if(respuesta == null) {
+						lblAviso.setText("Escoge una respuesta!");
+						jlabelPregunta.setFont(new Font("Bahnschrift", Font.BOLD, 17));
+						
+						lblAviso.setForeground(Color.RED);
+					}
+					else {
+					
+						if(pregunta.comprobarRespuesta(respuesta)) {
+							jlabelPregunta.setText("CORRECTO");
+							btnCHECK.setText("NEXT");
+							repintarBotonesCheck(btnA,btnB,btnC,btnD);
+							partida.getJugadores().get(partida.getPosActual()).sumarPunto();
+							partida.almacenarRonda(pregunta.getId_Pregunta(), 1);
+						}
+						else {
+							jlabelPregunta.setText("ERROR");
+							btnCHECK.setText("NEXT");
+							repintarBotonesCheck(btnA,btnB,btnC,btnD);
+							partida.almacenarRonda(pregunta.getId_Pregunta(), 0);
+							
+						}
+				
+					}
+				
+				}
 			}
-			
 		});
 		btnCHECK.setForeground(Color.BLACK);
 		btnCHECK.setFont(new Font("Tahoma", Font.BOLD, 14));

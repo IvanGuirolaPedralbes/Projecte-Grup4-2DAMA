@@ -308,7 +308,7 @@ public class MultiplesJugadores extends JFrame {
 
 				}
 				if (textFieldJugador1.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Obligatorio aÃ±adir nombre al Jugador1", "Alerta",
+					JOptionPane.showMessageDialog(null, "Obligatorio añadir nombre al Jugador1", "Alerta",
 							JOptionPane.WARNING_MESSAGE);
 				} else {
 					jugadores.add(new Humano(textFieldJugador1.getText()));

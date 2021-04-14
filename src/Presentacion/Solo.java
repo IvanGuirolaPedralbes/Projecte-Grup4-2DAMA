@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,12 +16,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import Logica.Humano;
+import Logica.Jugador;
 import Logica.Partida;
 
 public class Solo extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldJugador1;
+	public ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 
 
 	/**
@@ -40,11 +44,11 @@ public class Solo extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnJUGADOR1 = new JButton("JUGADOR 1");
-		btnJUGADOR1.setBounds(62, 85, 128, 48);
+		btnJUGADOR1.setBounds(341, 69, 128, 48);
 		contentPane.add(btnJUGADOR1);
 		
 		textFieldJugador1 = new JTextField();
-		textFieldJugador1.setBounds(263, 86, 253, 47);
+		textFieldJugador1.setBounds(285, 152, 253, 47);
 		contentPane.add(textFieldJugador1);
 		textFieldJugador1.setColumns(10);
 		
@@ -52,14 +56,23 @@ public class Solo extends JFrame {
 		JButton btnJugar = new JButton("JUGAR");
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PreguntaIngles pregIngles= new PreguntaIngles();
-				pregIngles.setVisible(true);
+				
+				jugadores.add(new Humano(textFieldJugador1.getText()));
+				partida.setCantidadJugadores(jugadores.size());
+				partida.setJugadores(jugadores);
+				partida.insertarJugadores();
+				try {
+					Ruleta ruleta = new Ruleta(partida);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				Solo.this.dispose();
 				
 				
 			}
 		});
-		btnJugar.setBounds(600, 75, 157, 68);
+		btnJugar.setBounds(332, 236, 157, 68);
 		contentPane.add(btnJugar);
 	
 		JLabel background;
