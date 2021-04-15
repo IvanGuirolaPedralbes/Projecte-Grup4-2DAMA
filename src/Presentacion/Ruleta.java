@@ -142,7 +142,7 @@ public class Ruleta {
 		            	preguntaIngles.setVisible(true);
 		            }
 		            else {
-		            	PreguntaDiccionario preguntaDiccionario = new PreguntaDiccionario();
+		            	PreguntaDiccionario preguntaDiccionario = new PreguntaDiccionario(partida);
 		            	preguntaDiccionario.setVisible(true);
 		            }
 		            frame.dispose();

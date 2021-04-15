@@ -52,43 +52,7 @@ public class PreguntaMates extends JFrame {
 		contentPane.setLayout(null);
 			
 		
-		   /*JLabel background;
-	        ImageIcon img = new ImageIcon("resources/FondoPreguntaMatematicas1.jpg");
-	        background = new JLabel("", img, JLabel.CENTER);
-	        background.setFont(new Font("Tahoma", Font.BOLD, 14));
-	        background.setBounds(0, 0, 1000, 600);
-	        contentPane.add(background);
-	        
-	        JLabel lblCalculadora = new JLabel("Calculadora");
-	        ImageIcon img2 = new ImageIcon("resources/Calculadora2.jpg");
-	        lblCalculadora= new JLabel ("",img2,JLabel.CENTER);
-	        lblCalculadora.setBounds(50, 0, 550, 550);
-	        background.add(lblCalculadora);
-	        
-	        JButton btnCHECK = new JButton("CHECK");
-	        btnCHECK.setBounds(725, 406, 115, 46);
-	        background.add(btnCHECK);
-	        
-	        JLabel lblPreguntaMatematica = new JLabel("Introducir Pregunta Matematica");
-	        lblCalculadora.add(lblPreguntaMatematica);
-	        lblPreguntaMatematica.setHorizontalAlignment(SwingConstants.CENTER);
-	        lblPreguntaMatematica.setFont(new Font("Tahoma", Font.BOLD, 14));
-	        lblPreguntaMatematica.setBounds(100, 40, 268, 44);
-	        
-	        JLabel lblRespuestaMatematica = new JLabel("Introducir Respuesta Matematica");
-	        lblRespuestaMatematica.setOpaque(true);
-	        
-	        lblCalculadora.add(lblRespuestaMatematica);
-	        lblRespuestaMatematica.setHorizontalAlignment(SwingConstants.CENTER);
-	        lblRespuestaMatematica.setFont(new Font("Tahoma", Font.BOLD, 14));
-	        lblRespuestaMatematica.setBounds(100, 80, 268, 44);
-	        lblRespuestaMatematica.setBackground(Color.decode("#c1d797"));// este es mismo color que el fondo de calculadora, sino queda blanco
-	        //Respuesta CORRECTA
-	       // lblRespuestaMatematica.setBackground(Color.GREEN);
-	        //Respuesta INCORRECTA
-	        //lblRespuestaMatematica.setBackground(Color.RED);
-	         * 
-	         */
+		   
 			
 			JButton btnNext = new JButton("NEXT");
 			btnNext.setFont(new Font("Tahoma", Font.BOLD, 17));

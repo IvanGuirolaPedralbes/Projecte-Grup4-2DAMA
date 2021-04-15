@@ -39,14 +39,13 @@ public class MultiplesJugadores extends JFrame {
 	private static int i = 1;
 	public ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 
-
 	/**
 	 * Create the frame.
 	 */
 	public MultiplesJugadores(Partida partida) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// setBounds(100, 100, 450, 300);
-		
+
 		setSize(1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 240, 240));
@@ -271,7 +270,7 @@ public class MultiplesJugadores extends JFrame {
 					if (comboJugador2.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador2.getText()));
 					} else {
-						jugadores.add(new Humano(textFieldJugador2.getText()));
+						jugadores.add(new Humano(textFieldJugador2.getText().toLowerCase()));
 					}
 
 				}
@@ -279,7 +278,7 @@ public class MultiplesJugadores extends JFrame {
 					if (comboJugador3.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador3.getText()));
 					} else {
-						jugadores.add(new Humano(textFieldJugador3.getText()));
+						jugadores.add(new Humano(textFieldJugador3.getText().toLowerCase()));
 					}
 
 				}
@@ -287,7 +286,7 @@ public class MultiplesJugadores extends JFrame {
 					if (comboJugador4.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador4.getText()));
 					} else {
-						jugadores.add(new Humano(textFieldJugador4.getText()));
+						jugadores.add(new Humano(textFieldJugador4.getText().toLowerCase()));
 					}
 
 				}
@@ -295,7 +294,7 @@ public class MultiplesJugadores extends JFrame {
 					if (comboJugador5.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador5.getText()));
 					} else {
-						jugadores.add(new Humano(textFieldJugador5.getText()));
+						jugadores.add(new Humano(textFieldJugador5.getText().toLowerCase()));
 					}
 
 				}
@@ -303,7 +302,7 @@ public class MultiplesJugadores extends JFrame {
 					if (comboJugador6.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador6.getText()));
 					} else {
-						jugadores.add(new Humano(textFieldJugador6.getText()));
+						jugadores.add(new Humano(textFieldJugador6.getText().toLowerCase()));
 					}
 
 				}
@@ -311,7 +310,7 @@ public class MultiplesJugadores extends JFrame {
 					JOptionPane.showMessageDialog(null, "Obligatorio añadir nombre al Jugador1", "Alerta",
 							JOptionPane.WARNING_MESSAGE);
 				} else {
-					jugadores.add(new Humano(textFieldJugador1.getText()));
+					jugadores.add(new Humano(textFieldJugador1.getText().toLowerCase()));
 					partida.setCantidadJugadores(jugadores.size());
 					partida.setJugadores(jugadores);
 					partida.insertarJugadores();

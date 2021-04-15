@@ -86,6 +86,7 @@ public class PartidaBD {
 	public static void finalizarPartida() {
 		try {
 			conexion.commit();
+			conn.desconectar();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
