@@ -66,4 +66,26 @@ public class PreguntasBD {
 		conn.desconectar();
 	return preguntaMates;
 	}
+	
+	public static String [] getPreguntaDiccionario() throws SQLException {
+		String preguntaDiccionario[] = new String[2];
+		String id_Pregunta = null;
+		String palabraDiccionario = null;
+		PreparedStatement PS;
+		ResultSet RS;
+		String SQL_SELECT = "SELECT * FROM DICCIONARIO ORDER BY RAND() LIMIT 1";
+		ProjectDatabaseConnection conn = new ProjectDatabaseConnection();
+		PS = conn.getConnection().prepareStatement(SQL_SELECT);
+		RS = PS.executeQuery();
+		while (RS.next()) {
+			preguntaDiccionario[0] = RS.getString(1);
+			preguntaDiccionario[1] = RS.getString(2);
+			
+		}
+		
+		PS = null;
+		RS = null;
+		conn.desconectar();
+	return preguntaDiccionario;
+	}
 }
