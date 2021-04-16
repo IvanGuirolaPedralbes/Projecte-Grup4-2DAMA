@@ -39,7 +39,7 @@ public class PreguntaMates extends JFrame {
 	public PreguntaMates(Partida partida) {
 		pregunta = new PreguntaMatematicasLogica();
 		//TODO FALTA CONTROLAR NUMEROS NEGATIVOS
-		System.out.println(pregunta.getOperacion());
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//setBounds(100, 100, 450, 300);
 		

@@ -19,4 +19,7 @@ public class Inicio {
 //TODO
 // CONTROLAR EMPATES, 
 //TODO con mas de 5 jugadores y 3 bots no termina partida
-//creo que es si turno final es un bot reproducido con 2 jugadores 1bot
+//no se que cojones es
+
+
+//si la ronda partida 3 llega a la ronda 3 se pilla ñor algun motivo desconocido

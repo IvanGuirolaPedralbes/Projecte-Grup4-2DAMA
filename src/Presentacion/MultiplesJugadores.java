@@ -266,51 +266,60 @@ public class MultiplesJugadores extends JFrame {
 		contentPane.add(btnJugar);
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (comboJugador2.isVisible()) {
-					if (comboJugador2.getSelectedItem().toString().equals("CPU")) {
-						jugadores.add(new CPU(textFieldJugador2.getText()));
-					} else {
-						jugadores.add(new Humano(textFieldJugador2.getText().substring(0, 1).toUpperCase() + textFieldJugador2.getText().substring(1).toLowerCase()));
-					}
 
-				}
-				if (comboJugador3.isVisible()) {
-					if (comboJugador3.getSelectedItem().toString().equals("CPU")) {
-						jugadores.add(new CPU(textFieldJugador3.getText()));
-					} else {
-						jugadores.add(new Humano(textFieldJugador3.getText().substring(0, 1).toUpperCase() + textFieldJugador3.getText().substring(1).toLowerCase()));
-					}
-
-				}
-				if (comboJugador4.isVisible()) {
-					if (comboJugador4.getSelectedItem().toString().equals("CPU")) {
-						jugadores.add(new CPU(textFieldJugador4.getText()));
-					} else {
-						jugadores.add(new Humano(textFieldJugador4.getText().substring(0, 1).toUpperCase() + textFieldJugador4.getText().substring(1).toLowerCase()));
-					}
-
-				}
-				if (comboJugador5.isVisible()) {
-					if (comboJugador5.getSelectedItem().toString().equals("CPU")) {
-						jugadores.add(new CPU(textFieldJugador5.getText()));
-					} else {
-						jugadores.add(new Humano(textFieldJugador5.getText().substring(0, 1).toUpperCase() + textFieldJugador5.getText().substring(1).toLowerCase()));
-					}
-
-				}
-				if (comboJugador6.isVisible()) {
-					if (comboJugador6.getSelectedItem().toString().equals("CPU")) {
-						jugadores.add(new CPU(textFieldJugador6.getText()));
-					} else {
-						jugadores.add(new Humano(textFieldJugador6.getText().substring(0, 1).toUpperCase() + textFieldJugador6.getText().substring(1).toLowerCase()));
-					}
-
-				}
 				if (textFieldJugador1.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Obligatorio añadir nombre al Jugador1", "Alerta",
 							JOptionPane.WARNING_MESSAGE);
 				} else {
-					jugadores.add(new Humano(textFieldJugador1.getText().substring(0, 1).toUpperCase() + textFieldJugador1.getText().substring(1).toLowerCase()));
+
+					if (comboJugador2.isVisible()) {
+						if (comboJugador2.getSelectedItem().toString().equals("CPU")) {
+							jugadores.add(new CPU(textFieldJugador2.getText()));
+						} else {
+							jugadores.add(new Humano(textFieldJugador2.getText().substring(0, 1).toUpperCase()
+									+ textFieldJugador2.getText().substring(1).toLowerCase()));
+						}
+
+					}
+					if (comboJugador3.isVisible()) {
+						if (comboJugador3.getSelectedItem().toString().equals("CPU")) {
+							jugadores.add(new CPU(textFieldJugador3.getText()));
+						} else {
+							jugadores.add(new Humano(textFieldJugador3.getText().substring(0, 1).toUpperCase()
+									+ textFieldJugador3.getText().substring(1).toLowerCase()));
+						}
+
+					}
+					if (comboJugador4.isVisible()) {
+						if (comboJugador4.getSelectedItem().toString().equals("CPU")) {
+							jugadores.add(new CPU(textFieldJugador4.getText()));
+						} else {
+							jugadores.add(new Humano(textFieldJugador4.getText().substring(0, 1).toUpperCase()
+									+ textFieldJugador4.getText().substring(1).toLowerCase()));
+						}
+
+					}
+					if (comboJugador5.isVisible()) {
+						if (comboJugador5.getSelectedItem().toString().equals("CPU")) {
+							jugadores.add(new CPU(textFieldJugador5.getText()));
+						} else {
+							jugadores.add(new Humano(textFieldJugador5.getText().substring(0, 1).toUpperCase()
+									+ textFieldJugador5.getText().substring(1).toLowerCase()));
+						}
+
+					}
+					if (comboJugador6.isVisible()) {
+						if (comboJugador6.getSelectedItem().toString().equals("CPU")) {
+							jugadores.add(new CPU(textFieldJugador6.getText()));
+						} else {
+							jugadores.add(new Humano(textFieldJugador6.getText().substring(0, 1).toUpperCase()
+									+ textFieldJugador6.getText().substring(1).toLowerCase()));
+						}
+
+					}
+
+					jugadores.add(new Humano(textFieldJugador1.getText().substring(0, 1).toUpperCase()
+							+ textFieldJugador1.getText().substring(1).toLowerCase()));
 					partida.setCantidadJugadores(jugadores.size());
 					partida.setJugadores(jugadores);
 					partida.insertarJugadores();
@@ -324,7 +333,7 @@ public class MultiplesJugadores extends JFrame {
 						e1.printStackTrace();
 					}
 					MultiplesJugadores.this.dispose();
-
+					
 				}
 			}
 		});

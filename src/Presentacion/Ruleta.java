@@ -22,145 +22,137 @@ import SelectionWheel.SelectionWheel;
 public class Ruleta {
 
 	public Ruleta(Partida partida) throws Exception {
-        
-        int width = 1000, height = 620;
-        
-		File RuletaAgudo = new File("resources"+File.separator+"ruletaAgudo.wav");
-		File RuletaGrave = new File("resources"+File.separator+"ruletaGrave.wav");
-		File Victory = new File("resources"+File.separator+"victory.wav");
-		
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       
-        
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("  Matematicas");
-        list.add("Ingles");
-        list.add("Diccionario");
-        list.add("  Matematicas");
-        list.add("Ingles");
-        list.add("Diccionario");
-       
-       
-        
-        
-        SelectionWheel wheel = new SelectionWheel(list);
-        wheel.hasBorders(true);
-       
-       
-        wheel.setBounds(250, 45, 500, 500);
-        ArrayList<Color> Colores = new ArrayList<Color>();
-        Colores.add(Color.GRAY);
-        Colores.add(Color.RED);
-        Colores.add(Color.WHITE);
-        wheel.setColorScheme(Colores);
-        
-        JLabel mensaje = new JLabel();
-        Jugador turnojugador = partida.turnoJugador();
-        if(turnojugador instanceof CPU) {
-        	mensaje.setText("El jugador es: " + turnojugador.getUsername() + " que tire un jugador humano por él");
-        }
-        else mensaje.setText("Es el turno de: " + turnojugador.getUsername());
-        mensaje.setBounds(5, -7, 1000, 40);
-        mensaje.setFont(new Font("Tahoma", Font.BOLD, 20));
-		mensaje.setHorizontalAlignment(SwingConstants.CENTER);
-		mensaje.setVerticalAlignment(SwingConstants.CENTER);
-        frame.add(mensaje);
-        
-        frame.add(wheel);
-        frame.setSize(width, height);
-        frame.setLayout(null);
-        frame.setVisible(true);
-        JLabel background;
-        ImageIcon img = new ImageIcon("resources/fondoRuleta.png");
-        background = new JLabel("", img, JLabel.CENTER);
-        background.setBounds(0, 10, 995, 600);
-        frame.add(background);
-       
-        
-        final SwingWorker worker = new SwingWorker(){
-        	 
-			@Override
-			protected Object doInBackground() throws Exception {
-				String nombrePos="0", nombrePosActual="0";
-				boolean switcher = false;
-				while(true) {
-		            // wait for action
-		            while(true)
-		            {
-						if(nombrePos!=nombrePosActual) {
-							if (switcher) {
-								PlaySound(RuletaAgudo);
-								switcher = false;
+
+		try {
+			int width = 1000, height = 620;
+			File RuletaAgudo = new File("resources" + File.separator + "ruletaAgudo.wav");
+			File RuletaGrave = new File("resources" + File.separator + "ruletaGrave.wav");
+			File Victory = new File("resources" + File.separator + "victory.wav");
+
+			JFrame frame = new JFrame();
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+			ArrayList<String> list = new ArrayList<String>();
+			list.add("  Matematicas");
+			list.add("Ingles");
+			list.add("Diccionario");
+			list.add("  Matematicas");
+			list.add("Ingles");
+			list.add("Diccionario");
+
+			SelectionWheel wheel = new SelectionWheel(list);
+			wheel.hasBorders(true);
+
+			wheel.setBounds(250, 45, 500, 500);
+			ArrayList<Color> Colores = new ArrayList<Color>();
+			Colores.add(Color.GRAY);
+			Colores.add(Color.RED);
+			Colores.add(Color.WHITE);
+			wheel.setColorScheme(Colores);
+
+			JLabel mensaje = new JLabel();
+			Jugador turnojugador = partida.turnoJugador();
+			if (turnojugador instanceof CPU) {
+				mensaje.setText("El jugador es: " + turnojugador.getUsername() + " que tire un jugador humano por él");
+			} else
+				mensaje.setText("Es el turno de: " + turnojugador.getUsername());
+			mensaje.setBounds(5, -7, 1000, 40);
+			mensaje.setFont(new Font("Tahoma", Font.BOLD, 20));
+			mensaje.setHorizontalAlignment(SwingConstants.CENTER);
+			mensaje.setVerticalAlignment(SwingConstants.CENTER);
+			frame.add(mensaje);
+
+			frame.add(wheel);
+			frame.setSize(width, height);
+			frame.setLayout(null);
+			frame.setVisible(true);
+			JLabel background;
+			ImageIcon img = new ImageIcon("resources/fondoRuleta.png");
+			background = new JLabel("", img, JLabel.CENTER);
+			background.setBounds(0, 10, 995, 600);
+			frame.add(background);
+
+			final SwingWorker worker = new SwingWorker() {
+
+				@Override
+				protected Object doInBackground() throws Exception {
+					String nombrePos = "0", nombrePosActual = "0";
+					boolean switcher = false;
+					while (true) {
+						// wait for action
+						while (true) {
+							if (nombrePos != nombrePosActual) {
+								if (switcher) {
+									PlaySound(RuletaAgudo);
+									switcher = false;
+								} else {
+									PlaySound(RuletaGrave);
+									switcher = true;
+								}
 							}
-							else {
-								PlaySound(RuletaGrave);
-								switcher = true;
+							nombrePos = nombrePosActual;
+							try {
+								Thread.sleep(10);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+							if (wheel.isSpinning())
+								break;
+						}
+						// while spinning
+						while (wheel.isSpinning()) {
+							nombrePosActual = wheel.getSelectedString();
+							if (nombrePos != nombrePosActual) {
+								if (switcher) {
+									PlaySound(RuletaAgudo);
+									switcher = false;
+								} else {
+									PlaySound(RuletaGrave);
+									switcher = true;
+								}
+							}
+							nombrePos = nombrePosActual;
+
+							try {
+								Thread.sleep(10);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
 							}
 						}
-						nombrePos=nombrePosActual;
-		                try {
-		                    Thread.sleep(10);
-		                } catch (InterruptedException e) {
-		                    e.printStackTrace();
-		                }
-		                if(wheel.isSpinning())
-		                    break;
-		            }
-		            // while spinning
-		            while(wheel.isSpinning())
-		            {
-		            	nombrePosActual=wheel.getSelectedString();
-						if(nombrePos!=nombrePosActual) {
-							if (switcher) {
-								PlaySound(RuletaAgudo);
-								switcher = false;
-							}
-							else {
-								PlaySound(RuletaGrave);
-								switcher = true;
-							}
+
+						// show selection
+						PlaySound(Victory);
+						JOptionPane.showMessageDialog(frame, "Te ha tocado : " + wheel.getSelectedString() + "!!");
+						if (wheel.getSelectedString().equals("  Matematicas")) {
+							PreguntaMates preguntaMates = new PreguntaMates(partida);
+							preguntaMates.setVisible(true);
+						} else if (wheel.getSelectedString().equals("Ingles")) {
+							PreguntaIngles preguntaIngles = new PreguntaIngles(partida);
+							preguntaIngles.setVisible(true);
+						} else {
+							PreguntaDiccionario preguntaDiccionario = new PreguntaDiccionario(partida);
+							preguntaDiccionario.setVisible(true);
 						}
-						nombrePos=nombrePosActual;
-		               
-		                try {
-		                    Thread.sleep(10);
-		                } catch (InterruptedException e) {
-		                    e.printStackTrace();
-		                }
-		            }
-		           
-		            // show selection
-		            PlaySound(Victory);
-		            JOptionPane.showMessageDialog(frame, "Te ha tocado : " + wheel.getSelectedString() +"!!");
-		            if(wheel.getSelectedString().equals("  Matematicas")) {
-		            	PreguntaMates preguntaMates = new PreguntaMates(partida);
-		            	preguntaMates.setVisible(true);
-		            }
-		            else if(wheel.getSelectedString().equals("Ingles")) {
-		            	PreguntaIngles preguntaIngles = new PreguntaIngles(partida);
-		            	preguntaIngles.setVisible(true);
-		            }
-		            else {
-		            	PreguntaDiccionario preguntaDiccionario = new PreguntaDiccionario(partida);
-		            	preguntaDiccionario.setVisible(true);
-		            }
-		            frame.dispose();
-		        }
-			}	
-		};
-		worker.execute();
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);	
-    }
-	
+						frame.dispose();
+					}
+				}
+			};
+			worker.execute();
+			frame.setResizable(false);
+			frame.setLocationRelativeTo(null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	public static void PlaySound(File Sound) {
 		Clip clip;
 		try {
 			clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(Sound));
 			clip.start();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -110,21 +110,26 @@ public class Partida {
 
 	public void almacenarRonda(String id_Pregunta, int puntos) {
 		PartidaBD.introducirJugada(id_Partida, rondaActual, jugadores.get(posActual).username, id_Pregunta, puntos);
-
+		System.out.println("almacenarronda: es "+ posActual + "igual a " +(jugadores.size() - 1) + "?");
 		if (posActual == jugadores.size() - 1) {
+			System.out.println("si");
 			this.rondaActual++;
 			this.posActual = 0;
 			if (!(rondaActual == duracionPartida + 1))
 				PartidaBD.introducirRonda(id_Partida, rondaActual);
 		} else
+			System.out.println("no");
 			this.posActual++;
 	}
 
 	public boolean isPartidaTerminada() {
+		System.out.println("partiterm: es "+ rondaActual + "igual a " +(duracionPartida + 1) + "?");
 		if (rondaActual == duracionPartida + 1) {
+			System.out.println("si");
 			PartidaBD.finalizarPartida();
 			return true;
 		} else
+			System.out.println("no");
 			return false;
 
 	}
