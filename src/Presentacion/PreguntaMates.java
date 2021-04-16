@@ -59,7 +59,7 @@ public class PreguntaMates extends JFrame {
 			btnNext.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(partida.isPartidaTerminada()) {
-						ventanaFin fin = new ventanaFin();
+						ventanaFin fin = new ventanaFin(partida);
 						fin.setVisible(true);
 						PreguntaMates.this.dispose();
 					}
@@ -74,6 +74,28 @@ public class PreguntaMates extends JFrame {
 					}
 				}
 			});
+			
+			JButton btnMenos = new JButton("-");
+			btnMenos.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					convertNegative();
+				}
+			});
+			
+			JButton btnMas = new JButton("+");
+			btnMas.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					convertPositive();
+				}
+			});
+			btnMas.setFont(new Font("Tahoma", Font.PLAIN, 61));
+			btnMas.setBounds(600, 427, 86, 88);
+			btnMas.setUI(new StyledButtonUI());
+			contentPane.add(btnMas);
+			btnMenos.setFont(new Font("Tahoma", Font.PLAIN, 67));
+			btnMenos.setBounds(600, 334, 86, 88);
+			btnMenos.setUI(new StyledButtonUI());
+			contentPane.add(btnMenos);
 			btnNext.setBounds(817, 275, 116, 59);
 			btnNext.setUI(new StyledButtonUI());
 			contentPane.add(btnNext);
@@ -237,7 +259,10 @@ public class PreguntaMates extends JFrame {
 					btn7.setEnabled(false);
 					btn8.setEnabled(false);
 					btn9.setEnabled(false);
+					btnMas.setEnabled(false);
+					btnMenos.setEnabled(false);
 					btncheck.setEnabled(false);
+				
 					btndelete.setEnabled(false);
 					
 					//boton next se hace visible a la derecha
@@ -263,28 +288,6 @@ public class PreguntaMates extends JFrame {
 			contentPane.add(btndelete);
 			
 			JLabel background;
-			
-			JButton btnMenos = new JButton("-");
-			btnMenos.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					convertNegative();
-				}
-			});
-			btnMenos.setFont(new Font("Tahoma", Font.PLAIN, 67));
-			btnMenos.setBounds(600, 334, 86, 88);
-			btnMenos.setUI(new StyledButtonUI());
-			contentPane.add(btnMenos);
-			
-			JButton btnMas = new JButton("+");
-			btnMas.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					convertPositive();
-				}
-			});
-			btnMas.setFont(new Font("Tahoma", Font.PLAIN, 61));
-			btnMas.setBounds(600, 427, 86, 88);
-			btnMas.setUI(new StyledButtonUI());
-			contentPane.add(btnMas);
 			background = new JLabel("");
 			background.setIcon(new ImageIcon("resources/Calculadora2.jpg"));
 			background.setBounds(300, 0, 550, 550);
@@ -317,6 +320,8 @@ public class PreguntaMates extends JFrame {
 				btn7.setEnabled(false);
 				btn8.setEnabled(false);
 				btn9.setEnabled(false);
+				btnMas.setEnabled(false);
+				btnMenos.setEnabled(false);
 				btncheck.setEnabled(false);
 				btndelete.setEnabled(false);
 				

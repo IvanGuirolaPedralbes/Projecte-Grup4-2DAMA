@@ -128,7 +128,7 @@ public class PreguntaIngles extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(btnCHECK.getText().equals("NEXT")) {
 					if(partida.isPartidaTerminada()) {
-						ventanaFin fin = new ventanaFin();
+						ventanaFin fin = new ventanaFin(partida);
 						fin.setVisible(true);
 						PreguntaIngles.this.dispose();
 					}

@@ -18,3 +18,4 @@ public class Inicio {
 
 //TODO
 // CONTROLAR EMPATES, 
+//TODO con mas de 5 jugadores y 3 bots no termina partida

@@ -270,7 +270,7 @@ public class MultiplesJugadores extends JFrame {
 					if (comboJugador2.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador2.getText()));
 					} else {
-						jugadores.add(new Humano(textFieldJugador2.getText().toLowerCase()));
+						jugadores.add(new Humano(textFieldJugador2.getText().substring(0, 1).toUpperCase() + textFieldJugador2.getText().substring(1).toLowerCase()));
 					}
 
 				}
@@ -278,7 +278,7 @@ public class MultiplesJugadores extends JFrame {
 					if (comboJugador3.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador3.getText()));
 					} else {
-						jugadores.add(new Humano(textFieldJugador3.getText().toLowerCase()));
+						jugadores.add(new Humano(textFieldJugador3.getText().substring(0, 1).toUpperCase() + textFieldJugador3.getText().substring(1).toLowerCase()));
 					}
 
 				}
@@ -286,7 +286,7 @@ public class MultiplesJugadores extends JFrame {
 					if (comboJugador4.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador4.getText()));
 					} else {
-						jugadores.add(new Humano(textFieldJugador4.getText().toLowerCase()));
+						jugadores.add(new Humano(textFieldJugador4.getText().substring(0, 1).toUpperCase() + textFieldJugador4.getText().substring(1).toLowerCase()));
 					}
 
 				}
@@ -294,7 +294,7 @@ public class MultiplesJugadores extends JFrame {
 					if (comboJugador5.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador5.getText()));
 					} else {
-						jugadores.add(new Humano(textFieldJugador5.getText().toLowerCase()));
+						jugadores.add(new Humano(textFieldJugador5.getText().substring(0, 1).toUpperCase() + textFieldJugador5.getText().substring(1).toLowerCase()));
 					}
 
 				}
@@ -302,7 +302,7 @@ public class MultiplesJugadores extends JFrame {
 					if (comboJugador6.getSelectedItem().toString().equals("CPU")) {
 						jugadores.add(new CPU(textFieldJugador6.getText()));
 					} else {
-						jugadores.add(new Humano(textFieldJugador6.getText().toLowerCase()));
+						jugadores.add(new Humano(textFieldJugador6.getText().substring(0, 1).toUpperCase() + textFieldJugador6.getText().substring(1).toLowerCase()));
 					}
 
 				}
@@ -310,7 +310,7 @@ public class MultiplesJugadores extends JFrame {
 					JOptionPane.showMessageDialog(null, "Obligatorio añadir nombre al Jugador1", "Alerta",
 							JOptionPane.WARNING_MESSAGE);
 				} else {
-					jugadores.add(new Humano(textFieldJugador1.getText().toLowerCase()));
+					jugadores.add(new Humano(textFieldJugador1.getText().substring(0, 1).toUpperCase() + textFieldJugador1.getText().substring(1).toLowerCase()));
 					partida.setCantidadJugadores(jugadores.size());
 					partida.setJugadores(jugadores);
 					partida.insertarJugadores();

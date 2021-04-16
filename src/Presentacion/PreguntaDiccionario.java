@@ -103,7 +103,7 @@ public class PreguntaDiccionario extends JFrame {
 				boolean casillasRellenadas = true;
 				if (btnCHECK.getText() == "NEXT") {
 					if (partida.isPartidaTerminada()) {
-						ventanaFin fin = new ventanaFin();
+						ventanaFin fin = new ventanaFin(partida);
 						fin.setVisible(true);
 						PreguntaDiccionario.this.dispose();
 					} else {
