@@ -40,9 +40,13 @@ public class PreguntaDiccionarioLogica extends Pregunta{
         this.id_Pregunta = id_Pregunta;
     }
     
-	public boolean comprobarRespuesta(String respuesta) {
-		if(respuesta.equals(correcta)) return true;
-		else return false;
+    
+	public boolean comprobarRespuesta(char[] respuesta) {
+		for(int i = 0; i<respuesta.length; i++) {
+			if(Character.toLowerCase(respuesta[i]) != palabraDiccionario.toLowerCase().charAt(i))
+				return false;
+		}
+		return true;
 	}
 
 	

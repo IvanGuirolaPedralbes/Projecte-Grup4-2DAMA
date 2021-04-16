@@ -71,7 +71,7 @@ public class PreguntaMates extends JFrame {
 							e1.printStackTrace();
 						}
 						PreguntaMates.this.dispose();
-					};
+					}
 				}
 			});
 			btnNext.setBounds(817, 275, 116, 59);

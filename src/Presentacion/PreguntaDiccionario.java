@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
+import Logica.CPU;
 import Logica.Partida;
 import Logica.PreguntaDiccionarioLogica;
 
@@ -30,15 +31,6 @@ public class PreguntaDiccionario extends JFrame {
 	private JPanel contentPane;
 	private PreguntaDiccionarioLogica pregunta;
 
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 * 
-	 * @throws InterruptedException
-	 */
 	public PreguntaDiccionario(Partida partida) throws InterruptedException {
 		pregunta = new PreguntaDiccionarioLogica();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,33 +47,22 @@ public class PreguntaDiccionario extends JFrame {
 		background = new JLabel("", img, JLabel.CENTER);
 		background.setBounds(492, 10, 0, 0);
 		contentPane.add(background);
-		JButton btnCHECK = new JButton("CHECK");
 
+		JButton btnCHECK = new JButton("CHECK");
 		btnCHECK.setForeground(Color.BLACK);
 		btnCHECK.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnCHECK.setBackground(Color.YELLOW);
-		btnCHECK.setBounds(248, 369, 99, 38);
-		// background.add(btnCHECK);
+		btnCHECK.setBounds(365, 404, 99, 38);
 		contentPane.add(btnCHECK);
 
-		JButton btnNEXT = new JButton("NEXT");
-		btnNEXT.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Ruleta ruleta = new Ruleta(partida);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				PreguntaDiccionario.this.dispose();
-			}
-		});
-		btnNEXT.setForeground(Color.WHITE);
-		btnNEXT.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNEXT.setBackground(Color.BLUE);
-		btnNEXT.setBounds(433, 369, 99, 38);
-		contentPane.add(btnNEXT);
+		JLabel lblMensaje = new JLabel("");
+		lblMensaje.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblMensaje.setBounds(269, 23, 337, 33);
+		contentPane.add(lblMensaje);
 
+		// infor help
+		System.out.println(pregunta.getPalabraDiccionario());
+		System.out.println(pregunta.getId_Pregunta());
 
 		int longitud = pregunta.getPalabraDiccionario().length();
 
@@ -89,10 +70,7 @@ public class PreguntaDiccionario extends JFrame {
 
 		int posicionX = 70;
 		int[] numElegidos = generarNumerosAleatorios(longitud);
-		for(int i = 0; i<numElegidos.length; i++) {
-			System.out.println(numElegidos[i]);
-		}
-		System.out.println("ARRAYARRIBA");
+
 		for (int i = 0; i < longitud; i++) {
 			vectorRelleno[i] = new JTextField();
 
@@ -102,9 +80,7 @@ public class PreguntaDiccionario extends JFrame {
 			setFont(new Font("Tahoma", Font.BOLD, 15));
 			vectorRelleno[i].setHorizontalAlignment(SwingConstants.CENTER);
 			String letra = String.valueOf(pregunta.getPalabraDiccionario().toUpperCase().charAt(i));
-			System.out.println(i);
 			if (!comprobarRepetidos(numElegidos, i)) {
-				System.out.println("no");
 				vectorRelleno[i].setText(letra);
 				vectorRelleno[i].setEditable(false);
 				vectorRelleno[i].setBackground(Color.WHITE);
@@ -112,7 +88,6 @@ public class PreguntaDiccionario extends JFrame {
 			}
 
 			else {
-				System.out.println("si");
 				Border border = BorderFactory.createLineBorder(Color.RED, 2);
 				vectorRelleno[i].setBorder(border);
 				vectorRelleno[i].setText("");
@@ -125,46 +100,61 @@ public class PreguntaDiccionario extends JFrame {
 		btnCHECK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int i;
-				boolean casillaRellenada = true;
-
-				for (i = 0; i < longitud && casillaRellenada; i++) {
-					if (vectorRelleno[i].getText().equals("")) {
-						casillaRellenada = false;
-
+				boolean casillasRellenadas = true;
+				if (btnCHECK.getText() == "NEXT") {
+					if (partida.isPartidaTerminada()) {
+						ventanaFin fin = new ventanaFin();
+						fin.setVisible(true);
+						PreguntaDiccionario.this.dispose();
+					} else {
+						try {
+							Ruleta ruleta = new Ruleta(partida);
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						PreguntaDiccionario.this.dispose();
 					}
-	        			
-				}
-
-				if (casillaRellenada) {
-					System.out.println("Perfecto!!");
-
 				} else {
-					JOptionPane.showMessageDialog(null, "No has rellenado los campos", "Alerta",
-							JOptionPane.WARNING_MESSAGE);
-					System.out.println("Falta casilla");
-				}
 
-				for (i = 0; i < longitud; i += 3) {
-					char letraDiccionario = pregunta.getPalabraDiccionario().charAt(i);
-					try {
-						char letraIntroducida = vectorRelleno[i].getText().charAt(0);
+					for (i = 0; i < longitud && casillasRellenadas; i++) {
+						if (vectorRelleno[i].getText().equals("")) {
+							casillasRellenadas = false;
 
-					} catch (Exception e1) {
-						System.out.println("Falta por rellenar!");
-					}
-					vectorRelleno[i].addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent e) {
-							if (letraDiccionario == letraDiccionario) {
-								System.out.println("Es lo mismo " + letraDiccionario);
-							}
 						}
 
-					});
+					}
+					if (casillasRellenadas) {
 
+						if (pregunta.comprobarRespuesta(jtextFieldArrayToCharArray(vectorRelleno))) {
+							lblMensaje.setText("CORRECTO");
+							btnCHECK.setText("NEXT");
+							btnCHECK.setBackground(Color.BLUE);
+							partida.getJugadores().get(partida.getPosActual()).sumarPunto();
+							partida.almacenarRonda(pregunta.getId_Pregunta(), 1);
+						} else {
+							lblMensaje.setText("ERROR");
+							btnCHECK.setText("NEXT");
+							btnCHECK.setBackground(Color.BLUE);
+							partida.almacenarRonda(pregunta.getId_Pregunta(), 0);
+						}
+
+					} else {
+						JOptionPane.showMessageDialog(null, "No has rellenado los campos", "Alerta",
+								JOptionPane.WARNING_MESSAGE);
+					}
 				}
 			}
 
 		});
+		
+		//TODO si sobra tiempo mejorar
+		 if(partida.getJugadores().get(partida.getPosActual()) instanceof CPU) {
+			 	lblMensaje.setText("ERROR");
+				btnCHECK.setText("NEXT");
+				btnCHECK.setBackground(Color.BLUE);
+				partida.almacenarRonda(pregunta.getId_Pregunta(), 0);
+		 }
 
 	}
 
@@ -182,7 +172,7 @@ public class PreguntaDiccionario extends JFrame {
 		for (int i = 0; i < numerosrandom; i++) {
 			int numeroRandom;
 			do {
-				numeroRandom = generarRandom(0, longitud-1);
+				numeroRandom = generarRandom(0, longitud - 1);
 			} while (comprobarRepetidos(numerosElegidos, numeroRandom));
 			numerosElegidos[i] = numeroRandom;
 
@@ -192,6 +182,7 @@ public class PreguntaDiccionario extends JFrame {
 	}
 
 	// genera numeros aleatorios
+
 	public static int generarRandom(int min, int max) {
 		Random random = new Random();
 		if (min >= max) {
@@ -209,5 +200,15 @@ public class PreguntaDiccionario extends JFrame {
 			}
 		}
 		return false;
+	}
+
+	public char[] jtextFieldArrayToCharArray(JTextField[] jtextArray) {
+		char[] charArray = new char[jtextArray.length];
+		for (int i = 0; i < jtextArray.length; i++) {
+			charArray[i] = jtextArray[i].getText().charAt(0);
+		}
+
+		return charArray;
+
 	}
 }
