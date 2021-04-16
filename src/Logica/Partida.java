@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 
 import Datos.PartidaBD;
 
@@ -73,18 +74,18 @@ public class Partida {
 	}
 
 	public ArrayList<Jugador> ordenarJugadoresPorPuntos() {
-		Jugador jugadorTemp;
-		for (int i = 0; i < jugadores.size(); i++) {
-			for (int j = 1; j < (jugadores.size() - i); j++) {
-				if (jugadores.get(j-1).getPuntuacion()> jugadores.get(j).getPuntuacion()) {
-					// swap elements
-					jugadorTemp = jugadores.get(j-1);
-					jugadores.set(j-1, jugadores.get(j));
-					jugadores.set(j, jugadorTemp);
-				}
+		Collections.sort(jugadores, new Comparator<Jugador>() {
+		    @Override
+		    public int compare(Jugador z1, Jugador z2) {
+		        if (z1.getPuntuacion() > z2.getPuntuacion())
+		            return 1;
+		        if (z1.getPuntuacion() < z2.getPuntuacion())
+		            return -1;
+		        return 0;
+		    }
+		});
 
-			}
-		}
+		Collections.reverse(jugadores);
 		return jugadores;
 	}
 

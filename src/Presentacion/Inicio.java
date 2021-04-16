@@ -19,3 +19,4 @@ public class Inicio {
 //TODO
 // CONTROLAR EMPATES, 
 //TODO con mas de 5 jugadores y 3 bots no termina partida
+//creo que es si turno final es un bot reproducido con 2 jugadores 1bot

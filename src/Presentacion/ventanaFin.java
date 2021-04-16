@@ -30,7 +30,9 @@ public class ventanaFin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	//TODO NO SE ORDENA BIEN
 	public ventanaFin(Partida partida) {
+		
 		ArrayList<Jugador> jugadores = partida.ordenarJugadoresPorPuntos();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
@@ -67,7 +69,7 @@ public class ventanaFin extends JFrame {
 		//mirar medida adecuada
 		
 		if(jugadores.size()>=2) {
-		JLabel lblSegundo = new JLabel(jugadores.get(1).getUsername());
+		JLabel lblSegundo = new JLabel("2. " + jugadores.get(1).getUsername() + " : "+ jugadores.get(1).getPuntuacion());
 		lblSegundo.setForeground(Color.GRAY);
 		lblSegundo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSegundo.setFont(new Font("Yu Gothic Medium", Font.BOLD, 16));
@@ -77,7 +79,7 @@ public class ventanaFin extends JFrame {
 		
 		
 		
-		JLabel lblPrimero = new JLabel(jugadores.get(0).getUsername());
+		JLabel lblPrimero = new JLabel("1. " + jugadores.get(0).getUsername() + " : "+ jugadores.get(0).getPuntuacion());
 		lblPrimero.setFont(new Font("Yu Gothic Medium", Font.BOLD, 17));
 		lblPrimero.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPrimero.setForeground(Color.ORANGE);
@@ -85,7 +87,7 @@ public class ventanaFin extends JFrame {
 		lblPrimero.setBounds(425, 359, 147, 29);
 		contentPane.add(lblPrimero);
 		if(jugadores.size()>=3) {
-		JLabel lblTercero = new JLabel(jugadores.get(2).getUsername());
+		JLabel lblTercero = new JLabel("3. " + jugadores.get(2).getUsername() + " : "+ jugadores.get(2).getPuntuacion());
 		lblTercero.setForeground(new Color(255, 99, 71));
 		lblTercero.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTercero.setFont(new Font("Yu Gothic Medium", Font.BOLD, 16));
@@ -94,21 +96,21 @@ public class ventanaFin extends JFrame {
 		}
 		
 		if(jugadores.size()>=4) {
-		JLabel lblCuarto = new JLabel(jugadores.get(3).getUsername());
+		JLabel lblCuarto = new JLabel("4. " + jugadores.get(3).getUsername() + " : "+ jugadores.get(3).getPuntuacion());
 		lblCuarto.setBounds(266, 486, 147, 29);
 		lblCuarto.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCuarto.setFont(new Font("Yu Gothic Medium", Font.BOLD, 14));
 		contentPane.add(lblCuarto);
 		}
 		if(jugadores.size()>=5) {
-		JLabel lblQuinto = new JLabel(jugadores.get(4).getUsername());
+		JLabel lblQuinto = new JLabel("5. " + jugadores.get(4).getUsername() + " : "+ jugadores.get(4).getPuntuacion());
 		lblQuinto.setBounds(425, 486, 147, 29);
 		lblQuinto.setHorizontalAlignment(SwingConstants.CENTER);
 		lblQuinto.setFont(new Font("Yu Gothic Medium", Font.BOLD, 14));
 		contentPane.add(lblQuinto);
 		}
 		if(jugadores.size()>=6) {
-		JLabel lblSexto = new JLabel(jugadores.get(5).getUsername());
+		JLabel lblSexto = new JLabel("6. " + jugadores.get(5).getUsername() + " : "+ jugadores.get(5).getPuntuacion());
 		lblSexto.setBounds(598, 486, 147, 29);
 		lblSexto.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSexto.setFont(new Font("Yu Gothic Medium", Font.BOLD, 14));
@@ -126,8 +128,6 @@ public class ventanaFin extends JFrame {
 		contentPane.add(background);
 		
 		
-		for(int i=0; i<jugadores.size();i++) {
-			System.out.println((i+1) +". " + jugadores.get(i).getUsername()+ " : " + jugadores.get(i).getPuntuacion());
-		}
+		
 	}
 }
