@@ -154,7 +154,7 @@ public class PreguntaIngles extends JFrame {
 							partida.almacenarRonda(pregunta.getId_Pregunta(), 1);
 						}
 						else {
-							jlabelPregunta.setText("ERROR");
+							jlabelPregunta.setText("HAS FALLADO!!");
 							btnCHECK.setText("NEXT");
 							repintarBotonesCheck(btnA,btnB,btnC,btnD);
 							partida.almacenarRonda(pregunta.getId_Pregunta(), 0);

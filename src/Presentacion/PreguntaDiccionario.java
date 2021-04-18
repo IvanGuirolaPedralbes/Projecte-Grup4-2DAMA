@@ -154,6 +154,10 @@ public class PreguntaDiccionario extends JFrame {
 				btnCHECK.setText("NEXT");
 				btnCHECK.setBackground(Color.BLUE);
 				partida.almacenarRonda(pregunta.getId_Pregunta(), 0);
+				for(int i = 0; i<vectorRelleno.length;i++) {
+					vectorRelleno[i].setEditable(false);
+					vectorRelleno[i].setBackground(Color.WHITE);
+				}
 		 }
 
 	}
