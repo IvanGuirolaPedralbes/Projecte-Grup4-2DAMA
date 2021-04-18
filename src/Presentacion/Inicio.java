@@ -23,3 +23,5 @@ public class Inicio {
 
 
 //si la ronda partida 3 llega a la ronda 3 se pilla ñor algun motivo desconocido
+
+//poner alert en ingles y hacer su diseño

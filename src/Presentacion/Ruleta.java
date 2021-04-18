@@ -122,7 +122,9 @@ public class Ruleta {
 
 						// show selection
 						PlaySound(Victory);
-						JOptionPane.showMessageDialog(frame, "Te ha tocado : " + wheel.getSelectedString() + "!!");
+						//JOptionPane.showMessageDialog(frame, "Te ha tocado : " + wheel.getSelectedString() + "!!", "Alerta");
+						JOptionPane.showMessageDialog(null, "Te ha tocado : " + wheel.getSelectedString() + "!!", "Alerta",
+								JOptionPane.WARNING_MESSAGE);
 						if (wheel.getSelectedString().equals("  Matematicas")) {
 							PreguntaMates preguntaMates = new PreguntaMates(partida);
 							preguntaMates.setVisible(true);

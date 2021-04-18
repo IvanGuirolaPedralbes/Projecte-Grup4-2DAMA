@@ -15,6 +15,7 @@ import Logica.StyledButtonUI;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -58,15 +59,11 @@ public class PreguntaIngles extends JFrame {
 		ButtonGroup grupo = new ButtonGroup();
 		
 		JLabel jlabelPregunta = new JLabel(pregunta.getPregunta());
+		jlabelPregunta.setForeground(Color.BLACK);
 		jlabelPregunta.setHorizontalAlignment(SwingConstants.CENTER);
-		jlabelPregunta.setFont(new Font("Bahnschrift", Font.BOLD, 17));
-		jlabelPregunta.setBounds(0, 24, 974, 38);
+		jlabelPregunta.setFont(new Font("Bahnschrift", Font.BOLD, 19));
+		jlabelPregunta.setBounds(0, 24, 1000, 38);
 		contentPane.add(jlabelPregunta);
-		
-		 JLabel lblAviso = new JLabel("");
-		 lblAviso.setHorizontalAlignment(SwingConstants.CENTER);
-	     lblAviso.setBounds(328, 333, 181, 37);
-	     contentPane.add(lblAviso);
 	        
 		
         
@@ -80,7 +77,7 @@ public class PreguntaIngles extends JFrame {
         });
         btnA.setBackground(Color.LIGHT_GRAY);
         btnA.setFont(new Font("Tahoma", Font.BOLD, 18));
-        btnA.setBounds(85, 127, 280, 47);
+        btnA.setBounds(112, 127, 280, 47);
         btnA.setUI(new StyledButtonUI());
         contentPane.add(btnA);
         
@@ -93,7 +90,7 @@ public class PreguntaIngles extends JFrame {
         });
         btnB.setBackground(Color.LIGHT_GRAY);
         btnB.setFont(new Font("Tahoma", Font.BOLD, 18));
-        btnB.setBounds(476, 127, 280, 47);
+        btnB.setBounds(604, 127, 280, 47);
         btnB.setUI(new StyledButtonUI());
         contentPane.add(btnB);
         
@@ -106,7 +103,7 @@ public class PreguntaIngles extends JFrame {
         });
         btnC.setBackground(Color.LIGHT_GRAY);
         btnC.setFont(new Font("Tahoma", Font.BOLD, 18));
-        btnC.setBounds(85, 230,280, 47);
+        btnC.setBounds(112, 275,280, 47);
         btnC.setUI(new StyledButtonUI());
         contentPane.add(btnC);
         
@@ -119,10 +116,10 @@ public class PreguntaIngles extends JFrame {
         });
         btnD.setBackground(Color.LIGHT_GRAY);
         btnD.setFont(new Font("Tahoma", Font.BOLD, 18));
-        btnD.setBounds(476, 230, 280, 47);
+        btnD.setBounds(604, 282, 280, 47);
         btnD.setUI(new StyledButtonUI());
         contentPane.add(btnD);
-        ImageIcon img = new ImageIcon("resources/fondoDuracionPartida3.jpg");
+        
         JButton btnCHECK = new JButton("CHECK");
 		btnCHECK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -144,10 +141,8 @@ public class PreguntaIngles extends JFrame {
 				}
 				else {
 					if(respuesta == null) {
-						lblAviso.setText("Escoge una respuesta!");
-						jlabelPregunta.setFont(new Font("Bahnschrift", Font.BOLD, 17));
-						
-						lblAviso.setForeground(Color.RED);
+						JOptionPane.showMessageDialog(null, "Debes escoger almenos una opcion!", "Alerta",
+								JOptionPane.WARNING_MESSAGE);
 					}
 					else {
 					
@@ -172,9 +167,9 @@ public class PreguntaIngles extends JFrame {
 			}
 		});
 		btnCHECK.setForeground(Color.BLACK);
-		btnCHECK.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnCHECK.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnCHECK.setBackground(Color.YELLOW);
-		btnCHECK.setBounds(375, 381, 99, 38);
+		btnCHECK.setBounds(433, 407, 145, 54);
 		btnCHECK.setUI(new StyledButtonUI());
 		contentPane.add(btnCHECK);
        // ImageIcon img = new ImageIcon("resources/fondoDuracionPartida3.jpg");
@@ -182,6 +177,12 @@ public class PreguntaIngles extends JFrame {
         grupo.add(btnB);
         grupo.add(btnC);
         grupo.add(btnD);
+        
+        JLabel background;
+        ImageIcon img = new ImageIcon("resources/ingles2.jpg");
+		background = new JLabel("", img, JLabel.CENTER);
+		background.setBounds(0, 0, 1000, 600);
+		contentPane.add(background);
         
         
         if(partida.getJugadores().get(partida.getPosActual()) instanceof CPU) {
