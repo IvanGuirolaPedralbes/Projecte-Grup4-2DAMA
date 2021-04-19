@@ -30,6 +30,20 @@ public class PreguntaDiccionario extends JFrame {
 
 	private JPanel contentPane;
 	private PreguntaDiccionarioLogica pregunta;
+	static Partida partida;
+	public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    
+                    new PreguntaDiccionario(partida).setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+	
 
 	public PreguntaDiccionario(Partida partida) throws InterruptedException {
 		pregunta = new PreguntaDiccionarioLogica();
@@ -147,18 +161,23 @@ public class PreguntaDiccionario extends JFrame {
 			}
 
 		});
-		
-		//TODO si sobra tiempo mejorar
-		 if(partida.getJugadores().get(partida.getPosActual()) instanceof CPU) {
-			 	lblMensaje.setText("ERROR");
-				btnCHECK.setText("NEXT");
-				btnCHECK.setBackground(Color.BLUE);
-				partida.almacenarRonda(pregunta.getId_Pregunta(), 0);
-				for(int i = 0; i<vectorRelleno.length;i++) {
-					vectorRelleno[i].setEditable(false);
-					vectorRelleno[i].setBackground(Color.WHITE);
-				}
-		 }
+
+		// TODO si sobra tiempo mejorar
+		if (partida.getJugadores().get(partida.getPosActual()) instanceof CPU) {
+			lblMensaje.setText("ERROR");
+			btnCHECK.setText("NEXT");
+			btnCHECK.setBackground(Color.BLUE);
+			partida.almacenarRonda(pregunta.getId_Pregunta(), 0);
+			for (int i = 0; i < vectorRelleno.length; i++) {
+				vectorRelleno[i].setEditable(false);
+				vectorRelleno[i].setBackground(Color.WHITE);
+			}
+		}
+		JLabel background2= new JLabel("");
+		ImageIcon img2 = new ImageIcon("resources/book.png");
+		background2 = new JLabel("", img2, JLabel.CENTER);
+		background.setBounds(0, 0, 1000, 600);
+		contentPane.add(background);
 
 	}
 
