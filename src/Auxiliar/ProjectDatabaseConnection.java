@@ -6,7 +6,7 @@ public class ProjectDatabaseConnection {
 	
 	private static Connection conn = null;
 	
-	private static final String IP = "192.168.12.136"; //Cambiar ip segun la ip de tu maquina virtual
+	private static final String IP = "192.168.12.123"; //Cambiar ip segun la ip de tu maquina virtual
 	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	private static final String USER = "root";
 	private static final String PASSWORD = "root";

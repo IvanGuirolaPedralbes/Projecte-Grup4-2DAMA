@@ -46,6 +46,7 @@ public class Jugadors extends JFrame {
 		btnVeureJugadors.setBackground(Color.WHITE);
 		btnVeureJugadors.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		btnVeureJugadors.setBounds(340, 73, 278, 102);

@@ -50,7 +50,7 @@ public class StartSlide extends JFrame {
 		new Thread(new Runnable() {
 			public void run() {
 				try {
-					Thread.sleep(100);
+					Thread.sleep(150);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -135,7 +135,7 @@ public class StartSlide extends JFrame {
 			private Component transitionOut;
 			private Component transitionIn;
 			private static final int tick = 16; //16ms
-			private static final int speed = 8;
+			private static final int speed = 12;
 			
 			public SwapTimerAction(Component transitionOut, Component transitionIn) {
 				this.transitionOut = transitionOut;
