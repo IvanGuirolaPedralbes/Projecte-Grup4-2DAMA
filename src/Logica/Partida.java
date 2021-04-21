@@ -92,6 +92,7 @@ public class Partida {
 	// pregunta de quien es el turno y va sumando rondas y turnos
 	public Jugador turnoJugador() {
 		Jugador jugadorTurno = jugadores.get(posActual);
+		//TODO tira error corregir
 
 		return jugadorTurno;
 	}
@@ -119,11 +120,13 @@ public class Partida {
 			System.out.println("si");
 			this.rondaActual++;
 			this.posActual = 0;
-			if (!(rondaActual == duracionPartida + 1))
+			if (rondaActual != (duracionPartida + 1)) {
 				PartidaBD.introducirRonda(id_Partida, rondaActual);
-		} else
+			}
+		} else {
 			System.out.println("no");
 			this.posActual++;
+		}
 	}
 
 	public boolean isPartidaTerminada() {
