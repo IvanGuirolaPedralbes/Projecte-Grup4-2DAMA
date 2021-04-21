@@ -57,7 +57,9 @@ public class Solo extends JFrame {
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				jugadores.add(new Humano(textFieldJugador1.getText()));
+				jugadores.add(new Humano(textFieldJugador1.getText().substring(0, 1).toUpperCase()
+						+ textFieldJugador1.getText().substring(1).toLowerCase()));
+				
 				partida.setCantidadJugadores(jugadores.size());
 				partida.setJugadores(jugadores);
 				partida.insertarJugadores();

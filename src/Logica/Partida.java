@@ -109,7 +109,11 @@ public class Partida {
 	}
 
 	public void almacenarRonda(String id_Pregunta, int puntos) {
-		PartidaBD.introducirJugada(id_Partida, rondaActual, jugadores.get(posActual).username, id_Pregunta, puntos);
+		System.out.println("jugadores:");
+		for(int i = 0; i<jugadores.size();i++) {
+			System.out.println(jugadores.get(i).getUsername() + " " + i);
+		}
+		PartidaBD.introducirJugada(id_Partida, rondaActual, jugadores.get(posActual).getUsername(), id_Pregunta, puntos);
 		System.out.println("almacenarronda: es "+ posActual + "igual a " +(jugadores.size() - 1) + "?");
 		if (posActual == jugadores.size() - 1) {
 			System.out.println("si");
