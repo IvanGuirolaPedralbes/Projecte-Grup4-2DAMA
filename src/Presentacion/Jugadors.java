@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Datos.JugadoresBD;
 import Logica.Jugador;
 import Logica.Partida;
 import Logica.StyledButtonUI;
@@ -20,6 +21,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.Map;
 import java.awt.event.ActionEvent;
 
 public class Jugadors extends JFrame {
@@ -80,11 +84,27 @@ public class Jugadors extends JFrame {
 		lblAtras.addMouseListener((MouseListener) new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-            	new StartSlide();
-				Jugadors.this.dispose();
+//            	new StartSlide();
+//				Jugadors.this.dispose();
+            	System.out.println("########### BENVINGUT AL CATÀLEG ###########");
+        		System.out.println("########### DISPOSITIUS DISPONIBLES ###########");
+        		Map<String, Integer> jugadores = null;
+        		try {
+        			jugadores = JugadoresBD.getJugadores();
+        		} catch (SQLException e1) {
+        			// TODO Auto-generated catch block
+        			e1.printStackTrace();
+        		}
+        		Iterator<String> iter = jugadores.keySet().iterator();
+
+        		while (iter.hasNext()) {
+        			String model = iter.next().toString();
+        			System.out.println("| MODEL: " + model);
+        		}
             }
 
         });
+		
 		contentPane.add(lblAtras);
 		
 		JLabel background = new JLabel();

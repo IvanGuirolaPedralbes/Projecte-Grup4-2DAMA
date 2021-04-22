@@ -31,7 +31,7 @@ public class listaJugadores extends JFrame {
 		
 		JLabel background = new JLabel();
 		background.setIcon(new ImageIcon(listaJugadores.class.getResource("/pruebas/saicle160200142.jpg")));
-		background.setBounds(0, 0, 800, 600);
+		background.setBounds(0, 0, 1000, 600);
 		contentPane.add(background);
 		
 		
