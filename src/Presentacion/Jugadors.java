@@ -22,6 +22,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.awt.event.ActionEvent;
@@ -50,6 +51,9 @@ public class Jugadors extends JFrame {
 		btnVeureJugadors.setBackground(Color.WHITE);
 		btnVeureJugadors.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				listaJugadores listaJugadores = new listaJugadores();
+				listaJugadores.setVisible(true);
+				Jugadors.this.dispose();
 				
 			}
 		});
@@ -67,6 +71,13 @@ public class Jugadors extends JFrame {
 		btnAfegirJugador.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnAfegirJugador.setUI(new StyledButtonUI());
 		getContentPane().add(btnAfegirJugador);
+		btnAfegirJugador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				anadirJugador anadirJugador = new anadirJugador();
+				anadirJugador.setVisible(true);
+				Jugadors.this.dispose();
+			}
+		});
 		
 		JButton btnEliminarJugador = new JButton("Eliminar jugador");
 		btnEliminarJugador.addActionListener(new ActionListener() {
@@ -84,23 +95,23 @@ public class Jugadors extends JFrame {
 		lblAtras.addMouseListener((MouseListener) new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-//            	new StartSlide();
-//				Jugadors.this.dispose();
-            	System.out.println("########### BENVINGUT AL CATÀLEG ###########");
-        		System.out.println("########### DISPOSITIUS DISPONIBLES ###########");
-        		Map<String, Integer> jugadores = null;
-        		try {
-        			jugadores = JugadoresBD.getJugadores();
-        		} catch (SQLException e1) {
-        			// TODO Auto-generated catch block
-        			e1.printStackTrace();
-        		}
-        		Iterator<String> iter = jugadores.keySet().iterator();
-
-        		while (iter.hasNext()) {
-        			String model = iter.next().toString();
-        			System.out.println("| MODEL: " + model);
-        		}
+            	new StartSlide();
+				Jugadors.this.dispose();
+//            	System.out.println("########### BENVINGUT AL CATÀLEG ###########");
+//        		System.out.println("########### DISPOSITIUS DISPONIBLES ###########");
+//        		ArrayList<Jugador> listaJugadores;
+//        		try {
+//        			listaJugadores = JugadoresBD.getJugadores();
+//        		} catch (SQLException e1) {
+//        			// TODO Auto-generated catch block
+//        			e1.printStackTrace();
+//        		}
+////        		Iterator<String> iter = jugadores.keySet().iterator();
+////
+////        		while (iter.hasNext()) {
+////        			String model = iter.next().toString();
+////        			System.out.println("| MODEL: " + model);
+////        		}
             }
 
         });
