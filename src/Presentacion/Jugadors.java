@@ -82,6 +82,9 @@ public class Jugadors extends JFrame {
 		JButton btnEliminarJugador = new JButton("Eliminar jugador");
 		btnEliminarJugador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				eliminarJugador eliminarJugador = new eliminarJugador();
+				eliminarJugador.setVisible(true);
+				Jugadors.this.dispose();
 			}
 		});
 		btnEliminarJugador.setBounds(340, 372, 278, 102);

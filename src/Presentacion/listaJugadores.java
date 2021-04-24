@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -96,7 +99,27 @@ public class listaJugadores extends JFrame {
 		btnEliminar.setBackground(Color.BLACK);
 		btnEliminar.setForeground(Color.WHITE);
 		contentPane.add(btnEliminar);
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				anadirJugador anadirJugador = new anadirJugador();
+				anadirJugador.setVisible(true);
+				listaJugadores.this.dispose();
+			}
+		});
 
+		JLabel lblAtras = new JLabel();
+		lblAtras.setIcon(new ImageIcon(anadirJugador.class.getResource("/pruebas/atras.png")));
+		lblAtras.setBounds(10, 0, 80, 80);
+		lblAtras.addMouseListener((MouseListener) new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            	Jugadors jugador = new Jugadors(null);
+            	jugador.setVisible(true);
+				listaJugadores.this.dispose();
+            }
+		});
+		contentPane.add(lblAtras);
+		
 		JLabel background = new JLabel();
 		background.setIcon(new ImageIcon(listaJugadores.class.getResource("/pruebas/saicle160200142.jpg")));
 		background.setBounds(0, 0, 1000, 600);
