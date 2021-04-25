@@ -28,7 +28,7 @@ import Logica.StyledButtonUI;
 public class eliminarJugador extends JFrame {
 
 	private JPanel contentPane;
-	
+
 	public eliminarJugador() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1000, 600);
@@ -39,30 +39,17 @@ public class eliminarJugador extends JFrame {
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane.setLayout(null);
-		
+
 		JLabel deletePlayer = new JLabel();
 		deletePlayer.setIcon(new ImageIcon(anadirJugador.class.getResource("/pruebas/eliminarJugador.png")));
 		deletePlayer.setBounds(316, 81, 180, 158);
 		contentPane.add(deletePlayer);
-		
+
 		JLabel lblNewLabel = new JLabel("Selecciona el jugador que desea eliminar");
 		lblNewLabel.setFont(new Font("Century", Font.PLAIN, 24));
 		lblNewLabel.setBounds(170, 250, 506, 35);
 		contentPane.add(lblNewLabel);
-		
-		
-		JButton btnEnviar = new JButton("Enviar");
-		btnEnviar.setBounds(316, 370, 180, 68);
-		btnEnviar.setFont(new Font("Tahoma", Font.BOLD, 23));
-		btnEnviar.setUI(new StyledButtonUI());
-		btnEnviar.setBackground(Color.WHITE);
-		contentPane.add(btnEnviar);
-		btnEnviar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
+
 		JComboBox comboJugadores = new JComboBox();
 		comboJugadores.setBounds(230, 296, 342, 49);
 		int jugadoresTotal = 0;
@@ -71,7 +58,7 @@ public class eliminarJugador extends JFrame {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-		for(int i=0; i<jugadoresTotal; i++) {
+		for (int i = 0; i < jugadoresTotal; i++) {
 			try {
 				comboJugadores.addItem(JugadoresBD.getJugadores().get(i).getUsername());
 			} catch (SQLException e1) {
@@ -79,20 +66,39 @@ public class eliminarJugador extends JFrame {
 			}
 		}
 		contentPane.add(comboJugadores);
-		
+
+		JButton btnEnviar = new JButton("Enviar");
+		btnEnviar.setBounds(316, 370, 180, 68);
+		btnEnviar.setFont(new Font("Tahoma", Font.BOLD, 23));
+		btnEnviar.setUI(new StyledButtonUI());
+		btnEnviar.setBackground(Color.WHITE);
+		contentPane.add(btnEnviar);
+		btnEnviar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String itemSeleccionado = (String) comboJugadores.getSelectedItem();
+				try {
+					JugadoresBD.eliminarJugador(itemSeleccionado);
+					JOptionPane.showMessageDialog(null, "El jugador se ha eliminado con éxito.", "Alerta",
+							JOptionPane.WARNING_MESSAGE);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		JLabel lblAtras = new JLabel();
 		lblAtras.setIcon(new ImageIcon(anadirJugador.class.getResource("/pruebas/atras.png")));
 		lblAtras.setBounds(10, 0, 80, 80);
 		lblAtras.addMouseListener((MouseListener) new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            	Jugadors jugador = new Jugadors(null);
-            	jugador.setVisible(true);
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Jugadors jugador = new Jugadors(null);
+				jugador.setVisible(true);
 				eliminarJugador.this.dispose();
-            }
+			}
 		});
 		contentPane.add(lblAtras);
-		
+
 		JLabel background = new JLabel();
 		background.setIcon(new ImageIcon(listaJugadores.class.getResource("/pruebas/saicle160200142.jpg")));
 		background.setBounds(0, 0, 1000, 600);

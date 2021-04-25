@@ -101,8 +101,8 @@ public class listaJugadores extends JFrame {
 		contentPane.add(btnEliminar);
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				anadirJugador anadirJugador = new anadirJugador();
-				anadirJugador.setVisible(true);
+				eliminarJugador eliminarJugador = new eliminarJugador();
+				eliminarJugador.setVisible(true);
 				listaJugadores.this.dispose();
 			}
 		});

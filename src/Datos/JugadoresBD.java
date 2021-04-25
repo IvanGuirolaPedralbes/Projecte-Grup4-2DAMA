@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -50,11 +51,43 @@ public class JugadoresBD {
 		conn.desconectar();
 	}
 
+	public static void eliminarJugador(String nombre) throws SQLException {
+		 Connection conexion = null;
+	      Statement stmt = null;
+	       try {
+	    	   ProjectDatabaseConnection conn = new ProjectDatabaseConnection();
+	   		conexion = conn.getConnection();
+	          System.out.println("Connection is created successfully:");
+	          stmt = (Statement) (conexion.createStatement());
+	          String query1 = "delete from  JUGADOR " +
+	          "where username='"+nombre+"';";
+	          stmt.executeUpdate(query1);
+	          System.out.println("Record is deleted from the table successfully..................");
+	          
+	       } catch (SQLException excep) {
+	          excep.printStackTrace();
+	       } catch (Exception excep) {
+	          excep.printStackTrace();
+	       } finally {
+	          try {
+	             if (stmt != null)
+	             conexion.close();
+	          } catch (SQLException se) {}
+	          try {
+	             if (conexion != null)
+	             conexion.close();
+	          } catch (SQLException se) {
+	             se.printStackTrace();
+	          }
+	       }
+	       System.out.println("Please check it in the MySQL Table. Record is now deleted.......");
+	    }
+
 	public static ArrayList<Jugador> getJugadores() throws SQLException {
 		PreparedStatement PS;
 		String username;
 		int nJugadors = 0;
-		ArrayList<Jugador> listaJugadores= new ArrayList();
+		ArrayList<Jugador> listaJugadores = new ArrayList();
 		ResultSet RS;
 		String SQL_CountJugadores = "SELECT COUNT(*) FROM JUGADOR where username not like 'IA%';";
 		// String SQL_SELECT = "SELECT username, sum(puntos) as Puntuacion from JUGADA
@@ -66,8 +99,7 @@ public class JugadoresBD {
 			nJugadors = Integer.parseInt(RS.getString(1));
 		}
 		for (int i = 0; i < nJugadors; i++) {
-			String SQL_SELECT = "SELECT username FROM JUGADOR WHERE username not like 'IA%' limit "
-					+ i + ",1;";
+			String SQL_SELECT = "SELECT username FROM JUGADOR WHERE username not like 'IA%' limit " + i + ",1;";
 			PS = conn.getConnection().prepareStatement(SQL_SELECT);
 			RS = PS.executeQuery();
 			if (RS.next()) {
