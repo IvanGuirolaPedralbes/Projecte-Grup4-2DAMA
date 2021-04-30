@@ -57,3 +57,5 @@ NOM: Jugador 2 | PUNTS: 1
 NOM: Pepe | PUNTS: 0
 Partida 15:
 NOM: Ivan | PUNTS: 0
+Partida 16:
+NOM: Jugador 1 | PUNTS: 0

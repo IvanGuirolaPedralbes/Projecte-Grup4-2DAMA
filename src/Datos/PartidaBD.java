@@ -90,7 +90,7 @@ public class PartidaBD {
 			conexion.commit();
 			conn.desconectar();
 			PrintWriter pw = new PrintWriter(fichero);
-			for (int i = 1; i < JugadoresBD.nPartidas(); i++) {
+			for (int i = 1; i <= JugadoresBD.nPartidas(); i++) {
 				Map partidas = JugadoresBD.historicPartida(i);
 				Iterator<String> iter = partidas.keySet().iterator();
 				pw.println("Partida "+i+":");

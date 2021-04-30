@@ -16,6 +16,9 @@ import Logica.StyledButtonUI;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 
 public class DuracionPartida extends JFrame {
@@ -102,6 +105,19 @@ public class DuracionPartida extends JFrame {
 		});
 		btnLarga.setBounds(71, 407, 275, 70);
 		contentPane.add(btnLarga);
+		
+		JLabel lblAtras = new JLabel();
+		lblAtras.setIcon(new ImageIcon(DuracionPartida.class.getResource("/pruebas/atras.png")));
+		lblAtras.setBounds(10, 0, 80, 80);
+		lblAtras.addMouseListener((MouseListener) new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            	new StartSlide();
+				DuracionPartida.this.dispose();
+            }
+
+        });
+		contentPane.add(lblAtras);
 		
 		JLabel background;
         ImageIcon img = new ImageIcon("resources/jordihurtado.jpg");
