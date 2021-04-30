@@ -31,6 +31,7 @@ public class PartidaBD {
 		return partida;
 	}
 	
+	
 	public static void iniciarPartida() {
 		conn=new ProjectDatabaseConnection();
 		conexion = conn.getConnection();

@@ -79,6 +79,9 @@ public class anadirJugador extends JFrame {
 							JugadoresBD.crearJugador(textFieldJugador.getText());
 							JOptionPane.showMessageDialog(null, "El jugador se ha creado con éxito.", "Alerta",
 									JOptionPane.WARNING_MESSAGE);
+							Jugadors jugador = new Jugadors(jugador2);
+			            	jugador.setVisible(true);
+							anadirJugador.this.dispose();
 						}
 					}
 				} catch (HeadlessException | SQLException e1) {

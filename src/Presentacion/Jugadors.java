@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Datos.JugadoresBD;
+import Datos.PartidaBD;
 import Logica.Jugador;
 import Logica.Partida;
 import Logica.StyledButtonUI;
@@ -98,6 +99,22 @@ public class Jugadors extends JFrame {
 		lblAtras.addMouseListener((MouseListener) new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+            	
+            	
+//            	Map<String, Integer>historico;
+//            	try {
+//					historico = JugadoresBD.historicPartida(1);
+//					Iterator<String> iter = historico.keySet().iterator();
+//					while (iter.hasNext()) {
+//						String model = iter.next().toString();
+//						System.out.println("NOM: " + historico.get(model) + " | PUNTUACIO: " + model);
+//					}
+//				} catch (SQLException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
+            	
+            	
             	new StartSlide();
 				Jugadors.this.dispose();
 //            	System.out.println("########### BENVINGUT AL CATÀLEG ###########");

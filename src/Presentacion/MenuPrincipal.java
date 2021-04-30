@@ -64,6 +64,13 @@ public class MenuPrincipal extends JPanel {
 		
 		JButton btnHistoricos = new JButton("HIST\u00D3RICOS");
 		btnHistoricos.setBounds(400, 291, 191, 41);
+		btnHistoricos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Historico historico = new Historico();
+				historico.setVisible(true);
+				ventanaInicio.dispose();
+			}
+		});
 		btnHistoricos.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnHistoricos.setUI(new StyledButtonUI());
 		add(btnHistoricos);

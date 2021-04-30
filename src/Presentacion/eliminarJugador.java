@@ -80,6 +80,9 @@ public class eliminarJugador extends JFrame {
 					JugadoresBD.eliminarJugador(itemSeleccionado);
 					JOptionPane.showMessageDialog(null, "El jugador se ha eliminado con éxito.", "Alerta",
 							JOptionPane.WARNING_MESSAGE);
+					Jugadors jugador = new Jugadors(null);
+	            	jugador.setVisible(true);
+					eliminarJugador.this.dispose();
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
