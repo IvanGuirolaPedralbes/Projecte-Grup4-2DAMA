@@ -98,20 +98,14 @@ public class Historico extends JFrame {
 
 				try {
 					Map partidas = JugadoresBD.historicPartida(id_Partida);
-//						int[] numElegidos = generarNumerosAleatorios(longitud)
-					// vectorRelleno[i].setHorizontalAlignment(SwingConstants.CENTER);
 					Iterator<String> iter = partidas.keySet().iterator();
 					int i=0;
 					while (iter.hasNext()) {
-//						vectorRelleno[i] = new JLabel();
-//						vectorRelleno[i].setBounds(posicionX, posicionY, 458, 35);
-//						posicionY += 37;
 						String model = iter.next().toString();
 						vectorRelleno[i].setText(i+1 + ". NOM: " + model + " | PUNTS: " + partidas.get(model));
 //						System.out.println(i+1 + ". NOM: " + model + " | PUNTS: " + partidas.get(model));
 						vectorRelleno[i].setForeground(Color.WHITE);
 						vectorRelleno[i].setFont(new Font("Tahoma", Font.BOLD, 30));
-//						contentPane.add(vectorRelleno[i]);
 						vectorRelleno[i].setVisible(true);
 						i++;
 					}
@@ -121,24 +115,6 @@ public class Historico extends JFrame {
 				}
 			}
 		});
-
-		// try {
-//				JugadoresBD.historicPartida(id_Partida);
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-
-//		JLabel lblNewLabel_1 = new JLabel("New label");
-//		lblNewLabel_1.setForeground(Color.WHITE);
-//		lblNewLabel_1.setBounds(260, 177, 458, 28);
-//		contentPane.add(lblNewLabel_1);
-//		String itemSeleccionado = (String) comboPartidas.getSelectedItem();
-//		if(comboPartidas.)
-//		ArrayList<Jugador> jugadores = partida.ordenarJugadoresPorPuntos();
-//		JButton  = new JButton("New button");
-//		btnNewButton.setBounds(68, 62, 89, 23);
-//		contentPane.add(btnNewButton);
 
 		JLabel lblAtras = new JLabel();
 		lblAtras.setIcon(new ImageIcon(Jugadors.class.getResource("/pruebas/atras.png")));

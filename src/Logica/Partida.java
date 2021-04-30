@@ -1,5 +1,6 @@
 package Logica;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -133,7 +134,12 @@ public class Partida {
 		System.out.println("partiterm: es "+ rondaActual + "igual a " +(duracionPartida + 1) + "?");
 		if (rondaActual == duracionPartida + 1) {
 			System.out.println("si");
-			PartidaBD.finalizarPartida();
+			try {
+				PartidaBD.finalizarPartida();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return true;
 		} else
 			System.out.println("no");
