@@ -2,10 +2,12 @@ package Presentacion;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.BorderFactory;
@@ -21,6 +23,7 @@ import javax.swing.border.EmptyBorder;
 import Logica.CPU;
 import Logica.Partida;
 import Logica.PreguntaDiccionarioLogica;
+import Logica.StyledButtonUI;
 
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
@@ -31,19 +34,19 @@ public class PreguntaDiccionario extends JFrame {
 	private JPanel contentPane;
 	private PreguntaDiccionarioLogica pregunta;
 	static Partida partida;
+
 	public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    
-                    new PreguntaDiccionario(partida).setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-	
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+
+					new PreguntaDiccionario(partida).setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	public PreguntaDiccionario(Partida partida) throws InterruptedException {
 		pregunta = new PreguntaDiccionarioLogica();
@@ -56,25 +59,30 @@ public class PreguntaDiccionario extends JFrame {
 		setContentPane(contentPane);
 
 		JLabel background;
-		ImageIcon img = new ImageIcon("resources/fondoDuracionPartida3.jpg");
+		ImageIcon img = new ImageIcon("resources/book.png");
 		contentPane.setLayout(null);
 		background = new JLabel("", img, JLabel.CENTER);
-		background.setBounds(492, 10, 0, 0);
+		background.setBounds(0, 0, 1000, 600);
 		contentPane.add(background);
-
-		JButton btnCHECK = new JButton("CHECK");
-		btnCHECK.setForeground(Color.BLACK);
-		btnCHECK.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnCHECK.setBackground(Color.YELLOW);
-		btnCHECK.setBounds(365, 404, 99, 38);
-		contentPane.add(btnCHECK);
 
 		JLabel lblMensaje = new JLabel("");
 		lblMensaje.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblMensaje.setBounds(269, 23, 337, 33);
-		contentPane.add(lblMensaje);
+		background.add(lblMensaje);
 
-		// infor help
+		JButton btnCHECK = new JButton("CHECK");
+		background.add(btnCHECK);
+		btnCHECK.setUI(new StyledButtonUI());
+		btnCHECK.setForeground(Color.BLACK);
+		btnCHECK.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnCHECK.setBackground(Color.YELLOW);
+		btnCHECK.setBounds(755, 108, 99, 38);
+
+		JPanel panelLetras = new JPanel();
+		panelLetras.setBounds(0, 235, 1000, 40);
+		panelLetras.setOpaque(false);
+		background.add(panelLetras);
+
 		System.out.println(pregunta.getPalabraDiccionario());
 		System.out.println(pregunta.getId_Pregunta());
 
@@ -89,15 +97,16 @@ public class PreguntaDiccionario extends JFrame {
 			vectorRelleno[i] = new JTextField();
 
 			posicionX += 40;
-			vectorRelleno[i].setColumns(10);
-			vectorRelleno[i].setBounds(posicionX, 207, 18, 20);
-			setFont(new Font("Tahoma", Font.BOLD, 15));
+			vectorRelleno[i].setPreferredSize(new Dimension(35, 35));
+			setFont(new Font("Tahoma", Font.BOLD, 30));
 			vectorRelleno[i].setHorizontalAlignment(SwingConstants.CENTER);
 			String letra = String.valueOf(pregunta.getPalabraDiccionario().toUpperCase().charAt(i));
 			if (!comprobarRepetidos(numElegidos, i)) {
 				vectorRelleno[i].setText(letra);
 				vectorRelleno[i].setEditable(false);
 				vectorRelleno[i].setBackground(Color.WHITE);
+				Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+				vectorRelleno[i].setBorder(border);
 
 			}
 
@@ -108,9 +117,8 @@ public class PreguntaDiccionario extends JFrame {
 
 			}
 
-			contentPane.add(vectorRelleno[i]);
+			panelLetras.add(vectorRelleno[i]);
 		}
-
 		btnCHECK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int i;
@@ -142,14 +150,26 @@ public class PreguntaDiccionario extends JFrame {
 
 						if (pregunta.comprobarRespuesta(jtextFieldArrayToCharArray(vectorRelleno))) {
 							lblMensaje.setText("CORRECTO");
+							lblMensaje.setBounds(285, 100, 200, 100);
+							// lblMensaje.setBounds(500, y, width, height);
+							lblMensaje.setForeground(Color.GREEN);
 							btnCHECK.setText("NEXT");
-							btnCHECK.setBackground(Color.BLUE);
+							btnCHECK.setForeground(Color.WHITE);
+							btnCHECK.setBackground(Color.GREEN);
 							partida.getJugadores().get(partida.getPosActual()).sumarPunto();
 							partida.almacenarRonda(pregunta.getId_Pregunta(), 1);
 						} else {
-							lblMensaje.setText("ERROR");
+							lblMensaje.setText("INCORRECTO");
+							lblMensaje.setBounds(285, 100, 400, 200);
+							JLabel respuestaCorrecta = new JLabel();
+							respuestaCorrecta.setText("Respuesta correcta es: " + pregunta.getPalabraDiccionario());
+							respuestaCorrecta.setBounds(285, 190, 250, 200);
+
+							background.add(respuestaCorrecta);
 							btnCHECK.setText("NEXT");
-							btnCHECK.setBackground(Color.BLUE);
+							lblMensaje.setForeground(Color.RED);
+							btnCHECK.setBackground(Color.RED);
+							btnCHECK.setForeground(Color.WHITE);
 							partida.almacenarRonda(pregunta.getId_Pregunta(), 0);
 						}
 
@@ -162,10 +182,10 @@ public class PreguntaDiccionario extends JFrame {
 
 		});
 
-		// TODO si sobra tiempo mejorar
 		if (partida.getJugadores().get(partida.getPosActual()) instanceof CPU) {
 			lblMensaje.setText("ERROR");
 			btnCHECK.setText("NEXT");
+			btnCHECK.setForeground(Color.WHITE);
 			btnCHECK.setBackground(Color.BLUE);
 			partida.almacenarRonda(pregunta.getId_Pregunta(), 0);
 			for (int i = 0; i < vectorRelleno.length; i++) {
@@ -173,11 +193,6 @@ public class PreguntaDiccionario extends JFrame {
 				vectorRelleno[i].setBackground(Color.WHITE);
 			}
 		}
-		JLabel background2= new JLabel("");
-		ImageIcon img2 = new ImageIcon("resources/book.png");
-		background2 = new JLabel("", img2, JLabel.CENTER);
-		background.setBounds(0, 0, 1000, 600);
-		contentPane.add(background);
 
 	}
 

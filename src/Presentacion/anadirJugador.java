@@ -68,7 +68,7 @@ public class anadirJugador extends JFrame {
 		btnEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					if (JugadoresBD.getJugadores().size()>44) {
+					if (JugadoresBD.getJugadores().size()>39) {
 						JOptionPane.showMessageDialog(null, "Ha llegado al número máximo de usuarios, elimine uno para poder añadir nuevos usuarios.", "Alerta",
 								JOptionPane.WARNING_MESSAGE);
 					} else {

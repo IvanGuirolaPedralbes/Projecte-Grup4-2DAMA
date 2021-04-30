@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -137,6 +140,19 @@ public class Historico extends JFrame {
 //		btnNewButton.setBounds(68, 62, 89, 23);
 //		contentPane.add(btnNewButton);
 
+		JLabel lblAtras = new JLabel();
+		lblAtras.setIcon(new ImageIcon(Jugadors.class.getResource("/pruebas/atras.png")));
+		lblAtras.setBounds(10, 0, 80, 80);
+		lblAtras.addMouseListener((MouseListener) new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            	new StartSlide();
+				Historico.this.dispose();
+            }
+
+        });
+		
+		contentPane.add(lblAtras);
         
 		JLabel background = new JLabel();
 		background.setIcon(new ImageIcon(Historico.class.getResource("/pruebas/podioFondo.jpg")));
