@@ -60,6 +60,7 @@ public class MultiplesJugadores extends JFrame {
 
 		JButton btnJugador1 = new JButton("Jugador");
 		btnJugador1.setBounds(175, 85, 128, 48);
+		btnJugador1.setEnabled(false);
 		contentPane.add(btnJugador1);
 
 		textFieldJugador1 = new JTextField();

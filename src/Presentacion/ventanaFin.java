@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,9 +12,12 @@ import javax.swing.border.EmptyBorder;
 import Logica.Jugador;
 import Logica.Partida;
 import Logica.ShadowText;
+import Logica.StyledButtonUI;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.SwingConstants;
@@ -116,6 +120,20 @@ public class ventanaFin extends JFrame {
 		lblSexto.setFont(new Font("Yu Gothic Medium", Font.BOLD, 14));
 		contentPane.add(lblSexto);
 		}
+		
+		JButton btnMenu = new JButton("MENÚ");
+		btnMenu.setFont(new Font("Tahoma", Font.BOLD, 22));
+		btnMenu.setUI(new StyledButtonUI());
+		btnMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new StartSlide();
+				ventanaFin.this.dispose();
+				//llamada a partida asignando rapida
+			
+			}
+		});
+		btnMenu.setBounds(425, 514, 155, 37);
+		contentPane.add(btnMenu);
 		/*JLabel background;
 		ImageIcon img = new ImageIcon("resources/prizebackground2.png");
 		
