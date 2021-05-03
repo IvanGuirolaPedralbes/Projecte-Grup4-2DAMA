@@ -1,7 +1,7 @@
 Partida 1:
 NOM: IA 3 | PUNTS: 3
-NOM: Jugador 2 | PUNTS: 0
 NOM: Pep | PUNTS: 0
+NOM: Jugador 2 | PUNTS: 0
 Partida 2:
 NOM: Pop | PUNTS: 0
 NOM: IA 2 | PUNTS: 2
@@ -31,6 +31,7 @@ NOM: IA 2 | PUNTS: 0
 NOM: IA 3 | PUNTS: 0
 NOM: Pep | PUNTS: 1
 Partida 9:
+NOM: Ape | PUNTS: 0
 NOM: Jugador 2 | PUNTS: 0
 NOM: Jugador 3 | PUNTS: 0
 Partida 10:
@@ -56,6 +57,11 @@ NOM: IA 3 | PUNTS: 3
 NOM: Jugador 2 | PUNTS: 1
 NOM: Pepe | PUNTS: 0
 Partida 15:
+NOM: Judith | PUNTS: 1
 NOM: Ivan | PUNTS: 0
 Partida 16:
-NOM: Jugador 1 | PUNTS: 0
+NOM: Ivan | PUNTS: 1
+NOM: IA 3 | PUNTS: 0
+NOM: Oriol | PUNTS: 2
+Partida 17:
+NOM: Pepe | PUNTS: 1
