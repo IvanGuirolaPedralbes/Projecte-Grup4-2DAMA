@@ -19,6 +19,7 @@ import javax.swing.border.EmptyBorder;
 import Logica.Humano;
 import Logica.Jugador;
 import Logica.Partida;
+import Logica.StyledButtonUI;
 
 public class Solo extends JFrame {
 
@@ -43,17 +44,25 @@ public class Solo extends JFrame {
 		setLocationRelativeTo(null);
 		contentPane.setLayout(null);
 		
-		JButton btnJUGADOR1 = new JButton("JUGADOR 1");
-		btnJUGADOR1.setBounds(341, 69, 128, 48);
-		contentPane.add(btnJUGADOR1);
+		JLabel textFieldIntroduce = new JLabel("Introduce tu nombre: ");
+		textFieldIntroduce.setForeground(Color.RED);
+		textFieldIntroduce.setFont(new Font("Tahoma", Font.BOLD, 18));
+		textFieldIntroduce.setBounds(296, 168, 250, 50);
+		
+		contentPane.add(textFieldIntroduce);
 		
 		textFieldJugador1 = new JTextField();
-		textFieldJugador1.setBounds(285, 152, 253, 47);
+		textFieldJugador1.setBounds(296, 224, 250, 50);
 		contentPane.add(textFieldJugador1);
 		textFieldJugador1.setColumns(10);
 		
 		
-		JButton btnJugar = new JButton("JUGAR");
+		JButton btnJugar = new JButton("Jugar");
+		btnJugar.setBounds(587, 215, 190, 63);
+		btnJugar.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnJugar.setUI(new StyledButtonUI());
+		btnJugar.setBackground(Color.RED);
+		contentPane.add(btnJugar);
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -74,14 +83,14 @@ public class Solo extends JFrame {
 				
 			}
 		});
-		btnJugar.setBounds(332, 236, 157, 68);
-		contentPane.add(btnJugar);
+		//btnJugar.setBounds(332, 236, 157, 68);
+		//contentPane.add(btnJugar);
 	
 		JLabel background;
-        ImageIcon img = new ImageIcon("resources/FondoJugadoresvs.jpg");
-        background = new JLabel("", img, JLabel.CENTER);
-        background.setBounds(0, 0, 1000, 600);
-        contentPane.add(background);
+		ImageIcon img = new ImageIcon("resources/fondo_Jugadores.jpg");
+		background = new JLabel("", img, JLabel.CENTER);
+		background.setBounds(0, 0, 1000, 600);
+		contentPane.add(background);
 		
 	}
 }
