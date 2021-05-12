@@ -1,12 +1,16 @@
 package Logica;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import javax.persistence.Entity;
+
 import Datos.PreguntasBD;
 
-public class PreguntaInglesLogica extends Pregunta{
+@Entity
+public class PreguntaInglesLogica extends Pregunta implements Serializable{
 	
 	private String pregunta;
 	private String correcta;
@@ -32,6 +36,22 @@ public class PreguntaInglesLogica extends Pregunta{
 	}
 
 	
+	
+	public PreguntaInglesLogica(String id_Pregunta, String pregunta, String correcta, String alt1, String alt2,
+			String alt3) {
+		super(id_Pregunta);
+		this.pregunta = pregunta;
+		this.correcta = correcta;
+		this.alt1 = alt1;
+		this.alt2 = alt2;
+		this.alt3 = alt3;
+	}
+
+
+
+
+
+
 	public String getId_Pregunta() {
 		return id_Pregunta;
 	}

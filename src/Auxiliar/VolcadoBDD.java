@@ -9,17 +9,22 @@ import java.sql.*;
 import java.text.DecimalFormat;
 import java.util.*;
 
+import Datos.PreguntasBD;
+
 public class VolcadoBDD {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		// Creado por Iván Guirola
 		
 		//se conecta a la abse de datos
 		ProjectDatabaseConnection conn = new ProjectDatabaseConnection();
 		Connection conexion = conn.getConnection();
-		IntroducirPreguntasDiccionario(conexion);
-		IntroducirPreguntasIngles(conexion);
-		IntroducirPreguntasMates(conexion);
+//		IntroducirPreguntasDiccionario(conexion);
+//		IntroducirPreguntasIngles(conexion);
+//		IntroducirPreguntasMates(conexion);
+//		PreguntasBD.ObjectDBIngles();
+//		PreguntasBD.ObjectDBMatematicas();
+		PreguntasBD.ObjectDBDiccionario();
 		conn.desconectar();
 	}
 	

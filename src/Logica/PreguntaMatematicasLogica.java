@@ -1,18 +1,35 @@
 package Logica;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 
+import javax.persistence.Entity;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import Datos.PreguntasBD;
 
-public class PreguntaMatematicasLogica extends Pregunta{
+@Entity
+public class PreguntaMatematicasLogica extends Pregunta implements Serializable{
 	//Creamos els atributs de la clase
 	private String operacion;
 	private int respuestaCorrecta; 
 	
+	
+	public PreguntaMatematicasLogica(String id_Pregunta, String operacion, int respuestaCorrecta) {
+		super(id_Pregunta);
+		this.operacion = operacion;
+		this.respuestaCorrecta = respuestaCorrecta;
+	}
+
+	public PreguntaMatematicasLogica(String id_Pregunta, String operacion) {
+		super(id_Pregunta);
+		this.operacion = operacion;
+	}
+
+
+
 	public PreguntaMatematicasLogica() {
 		
 		String[] preguntaMates = new String[2];

@@ -1,12 +1,20 @@
 package Logica;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.Random;
 
+import javax.persistence.Entity;
+
 import Datos.PreguntasBD;
 
-public class PreguntaDiccionarioLogica extends Pregunta{
+@Entity
+public class PreguntaDiccionarioLogica extends Pregunta implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String palabraDiccionario;
 	
 	
@@ -23,6 +31,13 @@ public class PreguntaDiccionarioLogica extends Pregunta{
 		
 	}
 	
+	public PreguntaDiccionarioLogica(String id_Pregunta, String palabraDiccionario) {
+		super(id_Pregunta);
+		this.palabraDiccionario = palabraDiccionario;
+	}
+
+
+
 	public String getPalabraDiccionario() {
 		return palabraDiccionario;
 	}
