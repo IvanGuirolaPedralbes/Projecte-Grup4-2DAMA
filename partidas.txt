@@ -1,0 +1,67 @@
+Partida 1:
+NOM: IA 3 | PUNTS: 3
+NOM: Jugador 2 | PUNTS: 0
+NOM: Pep | PUNTS: 0
+Partida 2:
+NOM: Pop | PUNTS: 0
+NOM: IA 2 | PUNTS: 2
+NOM: IA 3 | PUNTS: 2
+Partida 3:
+NOM: IA 3 | PUNTS: 3
+NOM: Jugador 2 | PUNTS: 1
+NOM: Pepe | PUNTS: 0
+Partida 4:
+NOM: Ppe | PUNTS: 0
+NOM: IA 2 | PUNTS: 2
+NOM: Jugador 3 | PUNTS: 1
+Partida 5:
+NOM: IA 2 | PUNTS: 3
+NOM: Jugador 3 | PUNTS: 2
+NOM: Pepe | PUNTS: 0
+Partida 6:
+NOM: IA 3 | PUNTS: 3
+NOM: Jugador 2 | PUNTS: 2
+NOM: Pepe | PUNTS: 0
+Partida 7:
+NOM: Pop | PUNTS: 0
+NOM: IA 2 | PUNTS: 3
+NOM: IA 3 | PUNTS: 3
+Partida 8:
+NOM: IA 2 | PUNTS: 0
+NOM: IA 3 | PUNTS: 0
+NOM: Pep | PUNTS: 1
+Partida 9:
+NOM: Jugador 2 | PUNTS: 0
+NOM: Jugador 3 | PUNTS: 0
+Partida 10:
+NOM: IA 3 | PUNTS: 3
+NOM: Jugador 2 | PUNTS: 0
+NOM: IA 4 | PUNTS: 3
+NOM: Pepe | PUNTS: 0
+Partida 11:
+NOM: Ee | PUNTS: 0
+NOM: Jugador 2 | PUNTS: 0
+NOM: Jugador 3 | PUNTS: 0
+Partida 12:
+NOM: Ee | PUNTS: 0
+NOM: Jugador 4 | PUNTS: 0
+NOM: Jugador 2 | PUNTS: 0
+NOM: Jugador 3 | PUNTS: 0
+Partida 13:
+NOM: Jugador 2 | PUNTS: 1
+NOM: Jugador 3 | PUNTS: 0
+NOM: Pepe | PUNTS: 0
+Partida 14:
+NOM: IA 3 | PUNTS: 3
+NOM: Jugador 2 | PUNTS: 1
+NOM: Pepe | PUNTS: 0
+Partida 15:
+NOM: Judith | PUNTS: 1
+NOM: Ivan | PUNTS: 0
+Partida 16:
+NOM: Pol | PUNTS: 0
+Partida 17:
+NOM: Jugador 2 | PUNTS: 0
+NOM: Pol | PUNTS: 0
+Partida 18:
+NOM: Ananaanana | PUNTS: 3

@@ -31,6 +31,10 @@ public class MenuPrincipal extends JPanel {
 		btnInforme.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnInforme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Informes2 informe= new Informes2();
+				informe.setVisible(true);
+				ventanaInicio.dispose();
+				
 			}
 		});
 		btnInforme.setUI(new StyledButtonUI());
