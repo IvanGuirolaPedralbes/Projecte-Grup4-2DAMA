@@ -56,12 +56,29 @@ NOM: IA 3 | PUNTS: 3
 NOM: Jugador 2 | PUNTS: 1
 NOM: Pepe | PUNTS: 0
 Partida 15:
-NOM: Judith | PUNTS: 1
 NOM: Ivan | PUNTS: 0
 Partida 16:
-NOM: Pol | PUNTS: 0
+NOM: Jugador 1 | PUNTS: 0
 Partida 17:
 NOM: Jugador 2 | PUNTS: 0
-NOM: Pol | PUNTS: 0
 Partida 18:
-NOM: Ananaanana | PUNTS: 3
+NOM: Ivan | PUNTS: 1
+NOM: Pepe | PUNTS: 0
+Partida 19:
+NOM: Jugador 2 | PUNTS: 1
+Partida 20:
+NOM: Ppe | PUNTS: 0
+Partida 21:
+NOM: Pepe | PUNTS: 0
+Partida 22:
+NOM: Victor | PUNTS: 0
+Partida 23:
+NOM: Jugador1 | PUNTS: 0
+NOM: Jugador2 | PUNTS: 0
+NOM: IA 3 | PUNTS: 1
+Partida 24:
+NOM: Jugador 2 | PUNTS: 1
+NOM: Jugador 3 | PUNTS: 2
+NOM: Jugador 1 | PUNTS: 2
+Partida 25:
+NOM: Jugador 1 | PUNTS: 2

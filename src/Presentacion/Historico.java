@@ -75,7 +75,7 @@ public class Historico extends JFrame {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-		for (int i = 1; i < partidesTotal; i++) {
+		for (int i = 1; i < partidesTotal+1; i++) {
 			comboPartidas.addItem("Partida " + i);
 		}
 		contentPane.add(comboPartidas);
